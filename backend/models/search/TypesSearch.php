@@ -18,8 +18,8 @@ class TypesSearch extends Types
     public function rules()
     {
         return [
-            [['id', 'url'], 'integer'],
-            [['name', 'title', 'description', 'h1', 'text', 'general_image'], 'safe'],
+            [['id'], 'integer'],
+            [['name','url', 'title', 'description', 'h1', 'text', 'general_image'], 'safe'],
         ];
     }
 
@@ -60,10 +60,11 @@ class TypesSearch extends Types
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'url' => $this->url,
+            //'url' => $this->url,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'url', $this->url])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'h1', $this->h1])

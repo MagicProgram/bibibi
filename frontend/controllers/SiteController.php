@@ -107,11 +107,11 @@ class SiteController extends Controller
             ->joinWith('types')
             ->all();
 
-
-        // print '<pre>';
-        // print_r($bbb);
-        // print '</pre>';
-        // die;
+            
+        //  print '<pre>';
+        //   print_r($bbb);
+        //  print '</pre>';
+        //  die; 
 
 
         $countQuery = clone $query;

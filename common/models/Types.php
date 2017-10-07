@@ -36,7 +36,7 @@ class Types extends \yii\db\ActiveRecord
         return [
             [['name'], 'required'],
             [['text', 'general_image'], 'string'],
-            [['name', 'title', 'description', 'h1'], 'string', 'max' => 255],
+            [['name', 'url', 'title', 'description', 'h1'], 'string', 'max' => 255],
         ];
     }
 
@@ -48,6 +48,7 @@ class Types extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'url' => 'Ссылка (латиница)',
             'title' => 'Title',
             'description' => 'Description',
             'h1' => 'H1',
