@@ -39,7 +39,7 @@ $this->title = 'My Yii Application';
     <tr>
         <td>
         <a href=""><? print($row['name']) ?></a></td>
-        <td><? print($_tagsArray) ?></td>
+        <td></td>
         <td><? print($row['address']) ?></td>
         <td><? print($row['phone']) ?></td>
         <td><? print($row['city']) ?></td>
