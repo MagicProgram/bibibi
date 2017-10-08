@@ -19,7 +19,7 @@ class TypesSearch extends Types
     {
         return [
             [['id'], 'integer'],
-            [['name','url', 'title', 'description', 'h1', 'text', 'general_image'], 'safe'],
+            [['name', 'url', 'title', 'description', 'h1', 'text', 'general_image'], 'safe'],
         ];
     }
 

@@ -16,6 +16,7 @@ use yii\db\Query;
 use yii\data\Pagination;
 use common\models\Schools;
 use common\models\SchoolsTypes;
+use yii\data\ActiveDataProvider;
 
 /**
  * Site controller
@@ -25,6 +26,8 @@ class SiteController extends Controller
     /**
      * @inheritdoc
      */
+    
+
     public function behaviors()
     {
         return [
@@ -75,15 +78,39 @@ class SiteController extends Controller
      * @return mixed
      */
 
-    public function actionJoppa() {
-        $query = Schools::find()
-            ->select('schools.*')
-            ->join('inner', 'schools_types', ['id' => 'school_id'])->all();
-        print '<pre>';
-        print_r($query);
-        print '</pre>';
-        die;
+    public function actionSchools() {
+        echo '<pre>';
+        $city = Yii::$app->params['city']['ekb']; 
+        // var_dump(333);
+        echo '</pre>';
+
+        return $this->render('schools', [
+            'city' => $city,
+
+        ]);
     }
+
+    private $city = 'ekb';
+
+    public function actionView($id)
+    {
+        $model = $this->findProductModel($id);
+
+        return $this->render('view', [
+            'model' => $model,
+            'city' => $this->city,
+        ]);
+    }
+
+    protected function findProductModel($id)
+    {
+        if (($model = Schools::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
 
     public function actionIndex()
     {
@@ -93,48 +120,22 @@ class SiteController extends Controller
         $url = Yii::$app->request->getUrl();
 
         $url = explode('/', $url);
-        
-        // print '<pre>';
-        // print_r(\Yii::$app->request->get());
-        // print '</pre>';
-        // die;
 
 
-        $query = Schools::find();
-        $bbb = $query
-            ->select(['address', 'phone', 'city', 'types.name'])
-            ->from('schools')
-            ->joinWith('types')
-            ->all();
-
-            
-        //  print '<pre>';
-        //   print_r($bbb);
-        //  print '</pre>';
-        //  die; 
 
 
-        $countQuery = clone $query;
-        $pages = new Pagination(['totalCount' => $countQuery->count()]);
-        $pages->setPageSize(10);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Schools::find()->active()->with(['types'])->orderBy(['id' => SORT_DESC]),
+            'pagination' => [
+                'pageSize' => 9,
+            ]
+        ]);
 
-        
-
-        $model = $query->offset($pages->offset)->limit($pages->limit)->all();
-
-        
-
-        return $this->render('index',[
-            // 'result_general' => $result_general,
-            'pages' => $pages,
-            'model' => $model,
-            // 'count_general' => $count_general,
-            // 'featured' => $featured,
-            // 'recommend' => $recommend,
-            // 'recommend_count' => $recommend_count
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
 
         ]);
-        // return $this->render('index');
+
     }
 
     /**

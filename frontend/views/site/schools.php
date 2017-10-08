@@ -23,11 +23,7 @@ $this->title = 'My Yii Application';
 
 
 
-<?= ListView::widget([
-        'dataProvider' => $dataProvider,
-        'layout' => "{items}\n{pager}",
-        'itemView' => '_item',
-    ]); ?>
+<?php echo $city ?>
 
 
 

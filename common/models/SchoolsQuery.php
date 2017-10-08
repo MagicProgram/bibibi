@@ -23,6 +23,11 @@ class SchoolsQuery extends \yii\db\ActiveQuery
         return parent::all($db);
     }
 
+    public function active()
+    {
+        return $this->andWhere(['active' => true]);
+    }
+
     /**
      * @inheritdoc
      * @return Schools|array|null

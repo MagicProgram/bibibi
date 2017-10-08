@@ -42,9 +42,9 @@ AppAsset::register($this);
         ['label' => 'Contact', 'url' => ['/site/contact']],
         ['label' => 'Города', 'url' => '',  'options' => ['class' => 'citys'], 
 
-            'items' => [['label' => 'Москва', 'url' => ['/site/index']],
-                        ['label' => 'Екатеринбург', 'url' => ['/site/about']],
-                        ['label' => 'Ростов-на-Дону', 'url' => ['/site/contact']]],
+            'items' => [['label' => 'Москва', 'url' => ['/moscow']],
+                        ['label' => 'Екатеринбург', 'url' => ['/ekb']],
+                        ['label' => 'Ростов-на-Дону', 'url' => ['/rostov']]],
         ]];
 
     if (Yii::$app->user->isGuest) {
