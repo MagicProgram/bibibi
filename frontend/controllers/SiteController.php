@@ -77,20 +77,40 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    
+    public function getCity() {
+
+        $url = Yii::$app->request->getUrl();
+
+        $url = explode('/', $url);
+        $url = explode('?', $url['1']);
+
+        // print_r($url);die;
+
+        return $url['0'];
+    }
+
+    
+
 
     public function actionSchools() {
-        echo '<pre>';
-        $city = Yii::$app->params['city']['ekb']; 
-        // var_dump(333);
-        echo '</pre>';
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => Schools::find()->active()->with(['types'])->where(['city' => $this->city])->orderBy(['id' => SORT_DESC]),
+            'pagination' => [
+                'pageSize' => 3,
+                'forcePageParam' => false,
+                'pageSizeParam' => false,
+            ]
+        ]);
 
         return $this->render('schools', [
-            'city' => $city,
-
+            'dataProvider' => $dataProvider,
+            'city' => $this->city,
         ]);
     }
 
-    private $city = 'ekb';
+
 
     public function actionView($id)
     {
@@ -116,26 +136,19 @@ class SiteController extends Controller
     {
         // $this->layout = "bootstrap";
 
-
-        $url = Yii::$app->request->getUrl();
-
-        $url = explode('/', $url);
-
-
-
-
         $dataProvider = new ActiveDataProvider([
             'query' => Schools::find()->active()->with(['types'])->orderBy(['id' => SORT_DESC]),
             'pagination' => [
-                'pageSize' => 9,
+                'pageSize' => 10,
             ]
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-
+            'city' => $this->city,
         ]);
 
+        
     }
 
     /**

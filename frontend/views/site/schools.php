@@ -6,24 +6,19 @@ use yii\widgets\ListView;
 
 // print_r($this);
 
-$this->title = 'My Yii Application';
+$currentCity = Yii::$app->params['city'][$city];
+
+$this->title = 'Школы Боевых искусств в г. ' . $currentCity;
+// $this->description = 'sssss';
 ?>
 
-    <header>
-        <a href="/"><img src="/logo.png" alt=""></a>
-    </header>
-   <h1>Боевые искусства в Москве</h1>
-    <p class="city">
-          <a href="/moscow/">Москва</a>
-        <a href="/saint-petersburg/">Санкт-Петербург</a>
-        <a href="/ekaterinburg/">Екатеринбург</a>
-        <a href="/rostov-on-don/">Ростов-на-Дону</a>
-    </p>
-    <h2>Москва</h2>
+<h1><?= $this->title ?></h1>
 
-
-
-<?php echo $city ?>
+<?= ListView::widget([
+    'dataProvider' => $dataProvider,
+    'layout' => "{items}\n{pager}",
+    'itemView' => '_item',
+]); ?>
 
 
 

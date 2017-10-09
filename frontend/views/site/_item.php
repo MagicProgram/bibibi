@@ -11,9 +11,10 @@ foreach ($model->types as $type) {
 }
 
 ?>
+
 <div class="panel panel-default">
     <div class="panel-heading"> 
-        <?= Html::a(Html::encode($model->name), ['view', 'id' => $model->id]) ?>
+        <?= Html::a(Html::encode($model->name), ['/'. $model->city . '/' . $model->id . '-' .$model->url]) ?>
     </div>
     <div class="panel-body">
         <?php if ($tagLinks): ?>
@@ -21,5 +22,6 @@ foreach ($model->types as $type) {
         <?php endif; ?>
         <p><b>Телефоны: </b><?php echo Yii::$app->formatter->asNtext($model->phone) ?></p>
         <p><b>Адрес: </b><?php echo Yii::$app->formatter->asNtext($model->address) ?></p>
+        <p><b>Город: </b><?php echo Yii::$app->formatter->asNtext($model->city) ?></p>
     </div>
 </div>
