@@ -14,6 +14,7 @@ class SchoolsQuery extends \yii\db\ActiveQuery
         return $this->andWhere('[[status]]=1');
     }*/
 
+
     /**
      * @inheritdoc
      * @return Schools[]|array
@@ -27,6 +28,12 @@ class SchoolsQuery extends \yii\db\ActiveQuery
     {
         return $this->andWhere(['active' => true]);
     }
+
+    public function forType($id)
+    {
+        return $this->joinWith(['schoolsTypes'], false)->andWhere([schoolsTypes::tableName() . '.type_id' => $id]);
+    }
+
 
     /**
      * @inheritdoc

@@ -17,7 +17,7 @@ use yii\data\Pagination;
 use common\models\Schools;
 use common\models\SchoolsTypes;
 use yii\data\ActiveDataProvider;
-
+use common\models\Types;
 /**
  * Site controller
  */
@@ -149,6 +149,30 @@ class SiteController extends Controller
         ]);
 
         
+    }
+     public function actionType($type)
+    {
+        $type = $this->findTagModel($type);
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => Schools::find()->active()->forType($type->id)->orderBy(['id' => SORT_DESC]),
+        ]);
+
+        
+
+        return $this->render('type', [
+            'type' => $type,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    protected function findTagModel($type)
+    {
+        if (($model = Types::findOne(['name' => $type])) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 
     /**
