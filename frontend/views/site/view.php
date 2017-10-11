@@ -10,7 +10,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Product */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Школы боевых искусств г. ' . Yii::$app->params['city'][$model->city], 'url' => ['/' . $city]];
+$this->params['breadcrumbs'][] = ['label' => Yii::$app->params['city'][$model->city], 'url' => ['/' . $city]];
 
 $crumbs = [];
 // $parent = $model->category;

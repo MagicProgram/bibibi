@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "{{%types}}".
@@ -71,5 +72,14 @@ class Types extends \yii\db\ActiveRecord
     public function getSchools()
     {
         return $this->hasMany(Schools::className(), ['id' => 'school_id'])->viaTable('{{%schools_types}}', ['type_id' => 'id']);
+    }
+
+    public function getTypesByCity($city = 'moscow')
+    {
+        return Types::find()
+        ->select(['{{%types}}.*', 'types_count' => new Expression('COUNT({{%types}}.id)')])
+        ->joinWith(['schools'], false)
+        ->where(['city' => $city])
+        ->groupBy('{{%types}}.id');
     }
 }

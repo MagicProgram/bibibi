@@ -38,20 +38,29 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    if (\frontend\components\Common::getCity()) {
+        $city = '/' . \frontend\components\Common::getCity() . '/types';
+    } else {
+        $city = '/';
+    }
+
+
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Главная', 'url' => ['/site/index']],
         ['label' => 'Города', 'url' => '',  'options' => ['class' => 'citys'], 
 
             'items' => [['label' => 'Москва', 'url' => ['/moscow']],
                         ['label' => 'Екатеринбург', 'url' => ['/ekb']],
                         ['label' => 'Ростов-на-Дону', 'url' => ['/rostov']]],
-        ]];
+        ],
+        ['label' => 'По видам', 'url' => [$city]],
+        ['label' => 'О проекте', 'url' => ['/site/about']],
+        ['label' => 'Контакт', 'url' => ['/site/contact']]];
+        
 
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'Логин', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
@@ -69,6 +78,7 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
+    
 
     <div class="menu-city">
         <a href="">Москва</a><br>
@@ -86,7 +96,6 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; My Company <?= date('Y') ?></p>

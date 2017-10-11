@@ -33,6 +33,10 @@ class SchoolsQuery extends \yii\db\ActiveQuery
     {
         return $this->joinWith(['schoolsTypes'], false)->andWhere([schoolsTypes::tableName() . '.type_id' => $id]);
     }
+    public function forTypeCity($id, $city)
+    {
+        return $this->joinWith(['schoolsTypes'], false)->where(['city' => $city])->andWhere([schoolsTypes::tableName() . '.type_id' => $id]);
+    }
 
 
     /**

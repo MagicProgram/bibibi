@@ -118,3 +118,21 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.types {
+    padding-left: 0;
+    margin-top: 40px;
+}
+.types li {
+    list-style-type: none;
+    display: inline-block;
+    min-width: 120px;
+    text-align: center;
+    font-size: 18px;
+}.types li:before {
+    content: '⭐';
+}
+
+.navbar-inverse {
+ /*background-color: #fff;*/
+}

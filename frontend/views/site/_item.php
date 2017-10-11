@@ -7,9 +7,10 @@ use yii\helpers\Html;
 
 $tagLinks = [];
 foreach ($model->types as $type) {
-    $tagLinks[] = Html::a(Html::encode($type->name), ['type', 'type' => $type->name]);
+    $tagLinks[] = Html::a(Html::encode($type->name), [$model->city . '/types/' . $type->url]);
 }
-
+// print('<pre>');
+// print_r($model);die;
 ?>
 
 <div class="panel panel-default">
@@ -18,7 +19,7 @@ foreach ($model->types as $type) {
     </div>
     <div class="panel-body">
         <?php if ($tagLinks): ?>
-            <p>Типы: <?= implode(', ', $tagLinks) ?></p>
+            <p>Виды: <?= implode(', ', $tagLinks) ?></p>
         <?php endif; ?>
         <p><b>Телефоны: </b><?php echo Yii::$app->formatter->asNtext($model->phone) ?></p>
         <p><b>Адрес: </b><?php echo Yii::$app->formatter->asNtext($model->address) ?></p>

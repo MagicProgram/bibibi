@@ -12,7 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-use yii\db\Query;
+// use yii\db\Query;
 use yii\data\Pagination;
 use common\models\Schools;
 use common\models\SchoolsTypes;
@@ -77,26 +77,12 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    
-    public function getCity() {
-
-        $url = Yii::$app->request->getUrl();
-
-        $url = explode('/', $url);
-        $url = explode('?', $url['1']);
-
-        // print_r($url);die;
-
-        return $url['0'];
-    }
-
-    
 
 
-    public function actionSchools() {
+    public function actionSchools($city) {
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Schools::find()->active()->with(['types'])->where(['city' => $this->city])->orderBy(['id' => SORT_DESC]),
+            'query' => Schools::find()->active()->with(['types'])->where(['city' => $city])->orderBy(['id' => SORT_DESC]),
             'pagination' => [
                 'pageSize' => 3,
                 'forcePageParam' => false,
@@ -106,19 +92,19 @@ class SiteController extends Controller
 
         return $this->render('schools', [
             'dataProvider' => $dataProvider,
-            'city' => $this->city,
+            'city' => $city,
         ]);
     }
 
 
 
-    public function actionView($id)
+    public function actionView($id, $city)
     {
         $model = $this->findProductModel($id);
 
         return $this->render('view', [
             'model' => $model,
-            'city' => $this->city,
+            'city' => $city,
         ]);
     }
 
@@ -136,6 +122,8 @@ class SiteController extends Controller
     {
         // $this->layout = "bootstrap";
 
+        // print_r(\frontend\components\Common::getCity()) ; die; 
+
         $dataProvider = new ActiveDataProvider([
             'query' => Schools::find()->active()->with(['types'])->orderBy(['id' => SORT_DESC]),
             'pagination' => [
@@ -145,34 +133,51 @@ class SiteController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'city' => $this->city,
+            // 'city' => $city,
         ]);
 
         
     }
-     public function actionType($type)
+    
+    public function actionTypes($type, $city)
     {
-        $type = $this->findTagModel($type);
+        // print_r($city);die;
+        $type = $this->findTypeModel($type); //->where(['city' => $city])
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Schools::find()->active()->forType($type->id)->orderBy(['id' => SORT_DESC]),
+            'query' => Schools::find()->active()->forTypeCity($type->id, $city)->orderBy(['id' => SORT_DESC]),
         ]);
 
-        
 
-        return $this->render('type', [
+        return $this->render('types', [
             'type' => $type,
             'dataProvider' => $dataProvider,
+            'city' => $city,
         ]);
     }
 
-    protected function findTagModel($type)
+    protected function findTypeModel($type)
     {
-        if (($model = Types::findOne(['name' => $type])) !== null) {
+        if (($model = Types::findOne(['url' => $type])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+
+    public function actionAllTypes($city)
+    {
+
+        $model = Types::getTypesByCity($city)->all();
+        // print '<pre>';
+        // print_r($model); die;
+
+
+        return $this->render('alltypes', [
+            'model' => $model,
+            'city' => $city,
+        ]);
     }
 
     /**

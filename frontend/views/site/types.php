@@ -9,17 +9,16 @@ use yii\widgets\ListView;
 
 $this->title = $type->name;
 
-$this->params['breadcrumbs'][] = ['label' => 'Catalog', 'url' => ['index']];
+$currentCity = Yii::$app->params['city'][$city];
+
+$this->params['breadcrumbs'][] = ['label' => 'Виды боевых искусств', 'url' => ['/' . $city . '/types']];
 $this->params['breadcrumbs'][] = $this->title;
 $this->params['type'] = $type;
 ?>
-<div class="catalog-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1>Школы <?= Html::encode($this->title); echo ' ', $currentCity ?></h1>
 
     <?= ListView::widget([
         'dataProvider' => $dataProvider,
         'layout' => "{items}\n{pager}",
         'itemView' => '_item',
     ]); ?>
-</div>

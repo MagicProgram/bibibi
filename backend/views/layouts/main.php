@@ -29,14 +29,13 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => '👹 Angry Dragon',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
     $menuItems = [
-        ['label' => 'Главная', 'url' => ['/site/index']],
         ['label' => 'Школы', 'url' => ['/schools']],
             ['label' => 'Типы', 'url' => ['/types']],
             ['label' => 'Школы и Типы', 'url' => ['/schools-types']],
