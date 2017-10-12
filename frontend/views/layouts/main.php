@@ -12,6 +12,10 @@ use frontend\assets\AppAsset;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+
+// echo '<br><br><br><pre>';
+// print_r(Yii::$app->params);
+// echo '</pre>';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -21,7 +25,9 @@ AppAsset::register($this);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?php echo  Html::encode(\frontend\components\Common::getTitle()); ?></title>
+    <meta name="description" content="<?php echo  Html::encode(\frontend\components\Common::getDescription()); ?>"/>
+    <meta name="keywords" content="<?php // echo  Html::encode(Yii::$app->params['seo']['keywords']); ?>"/>
     <link rel="canonical" href="<?php echo Yii::$app->request->getHostInfo() . '/' . Yii::$app->request->getPathInfo(); ?>" />
     <?php $this->head() ?>
 </head>

@@ -18,6 +18,7 @@ use common\models\Schools;
 use common\models\SchoolsTypes;
 use yii\data\ActiveDataProvider;
 use common\models\Types;
+use common\models\City;
 /**
  * Site controller
  */
@@ -170,13 +171,16 @@ class SiteController extends Controller
     {
 
         $model = Types::getTypesByCity($city)->all();
-        // print '<pre>';
-        // print_r($model); die;
+        
 
+        $name = $city . 'types';
+
+        $modelCity = City::findOne(['name' => $name]);
 
         return $this->render('alltypes', [
             'model' => $model,
             'city' => $city,
+            'modelCity' => $modelCity,
         ]);
     }
 

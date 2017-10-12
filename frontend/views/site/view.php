@@ -12,6 +12,10 @@ use yii\widgets\DetailView;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::$app->params['city'][$model->city], 'url' => ['/' . $city]];
 
+\frontend\components\Common::setDescription($model->description, ['name' => $model->name, 'city' => Yii::$app->params['city'][$model->city]], 'view');
+\frontend\components\Common::setTitle($model->title, ['name' => $model->name, 'city' => Yii::$app->params['city'][$model->city]], 'view');
+
+
 $crumbs = [];
 // $parent = $model->category;
 // $crumbs[] = ['label' => $parent->name, 'url' => ['category', 'id' => $parent->id]];

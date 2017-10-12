@@ -7,6 +7,8 @@ use yii\widgets\ListView;
 /* @var $tag app\models\Schools */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+// echo $modelCity->text;
+
 $currentCity = Yii::$app->params['city'][$city];
 
 $this->title = 'Все виды боевых искусств в г. ' . $currentCity;
