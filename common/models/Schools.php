@@ -43,12 +43,14 @@ class Schools extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'city', 'city', 'active', 'age', 'url'], 'required'],
-            [['address', 'timetable', 'about', 'url'], 'string'],
+            [['name', 'city', 'city', 'active', 'age'], 'required'],
+            [['address', 'timetable', 'about'], 'string'],
+            // [['url'], 'backend\models\validate\UrlValidate'],
             [['active', 'age'], 'integer'],
             [['tagsArray'], 'safe'],
             [['updated'], 'safe'],
-            [['name', 'phone', 'city', 'www', 'email', 'general_image', 'title', 'description', 'h1'], 'string', 'max' => 255],
+            [['phone'], 'backend\models\validate\PhoneValidate'],
+            [['name', 'city', 'www', 'email', 'general_image', 'title', 'description', 'h1'], 'string', 'max' => 255],
         ];
     }
 

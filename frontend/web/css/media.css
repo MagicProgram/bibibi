@@ -1,0 +1,52 @@
+@media (max-width: 767px) {
+	.school {
+		max-height: 500px;
+		padding-bottom: 15px;
+  }
+	.school .school_overflow_cell {
+		max-height: 500px;
+		padding-bottom: 0;
+		margin-top: 0;
+	}
+	.school .school_phone {
+	    padding-bottom: 7px;
+	    padding-top: 7px;
+	}
+
+	.school .school_phone .school_overflow_cell{
+	    max-width: 505px;
+	    /*padding-left: 15px;*/
+	}
+	.school .school_phone .school_overflow_cell a{
+	    background-color: #92DBC7;
+	    display: inline-block;
+	    padding: 2px 8px 2px 5px;
+	    border-radius: 5px;
+	    margin-left: 0;
+		margin-bottom: 5px;
+	}
+	.school .school_phone .school_overflow_cell::before {
+	    content: '📱';
+	    position: absolute;
+	    left: -4px;
+	    top:9px;
+	}
+	.school .school_address .school_overflow_cell img {
+	  position: absolute;
+	  left: -7px;
+	}
+	.school .school_address .school_overflow_cell::before {
+	  
+	}
+	.school .school_types .school_overflow_cell::before {
+	    content: '⭐';
+	    position: absolute;
+	    left: -7px;
+	}
+	.school:hover .school_overflow_cell {
+	    max-height: 250px;
+	    margin-top: 0;
+	    overflow: visible;
+	    padding-bottom: 0;
+	}
+}

@@ -85,13 +85,18 @@ class Common extends Component{
 
         if ($data != '') {
             Yii::$app->params['seo']['description'] = $data;
-        }
-
-        if ($data == '' && $generate != '' && $view == 'view') {
+        
+        } elseif ($data == '' && $generate != '' && $view == 'view') {
             Yii::$app->params['seo']['description'] = 
                                         'Описание школы боевых искусств ' . 
                                         $generate['name'] . ' ' . $generate['city'] .
                                         '. Адрес, телефоны, расписание. Виды боевых искусств которые преподаются в школе.';
+        
+        } elseif ($data == '' && $generate != '' && $view == 'type') {
+            Yii::$app->params['seo']['description'] = 
+                                        'Школы боевых искусств, фитнес залы, секции боевых искусств по виду ' . 
+                                        $generate['name'] . ' в городе ' . $generate['city'] .
+                                        '. Каталог с адресами и телефонами. Краткое описание вида боевого искусства.';
         }
  
     }
@@ -109,7 +114,7 @@ class Common extends Component{
 
         } else {
 
-            return '';
+            return 'Пустой дескрипшен, нужно вывести нормальный!';
 
         }
     }
@@ -125,11 +130,13 @@ class Common extends Component{
 
         if ($data != '') {
             Yii::$app->params['seo']['title'] =  $data;
-        }
-
-        if ($data == '' && $generate != '' && $view == 'view') {
+        
+        } elseif ($data == '' && $generate != '' && $view == 'view') {
             Yii::$app->params['seo']['title'] = $generate['name'] . ' в ' . $generate['city'] .
                                         '. Информация о школе боевых искусств';
+        
+        } elseif ($data == '' && $generate != '' && $view == 'type') {
+            Yii::$app->params['seo']['title'] = 'Школы и секции по ' . $generate['name'] . ' в г. ' . $generate['city'];
         }
  
     }
@@ -145,7 +152,7 @@ class Common extends Component{
 
         } else {
 
-            return '';
+            return 'Пустой тайтл, нужно вывести нормальный!';
 
         }
     }

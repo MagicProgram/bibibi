@@ -110,6 +110,33 @@ a.desc:after {
     }
 }
 
+
+.navbar-inverse {
+    background-color: #008da2;
+    border-color: #fff;
+}
+.navbar-inverse .navbar-brand {
+    color: #c6f0da;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #c6f0da;
+}
+
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus
+{
+    background-color: #008da2;
+    color:#c6f0da;
+}
+.navbar-inverse .navbar-nav > .open > a, 
+.navbar-inverse .navbar-nav > .open > a:hover, 
+.navbar-inverse .navbar-nav > .open > a:focus
+{
+    background-color: #007e91;
+}
+
 .nav > li > form > button.logout:focus,
 .nav > li > form > button.logout:hover {
     text-decoration: none;
@@ -135,4 +162,96 @@ a.desc:after {
 
 .navbar-inverse {
  /*background-color: #fff;*/
+}
+
+.schools_list_header {
+    color: #ccc;
+    padding-bottom: 5px;
+}
+
+
+.school {
+    background-color: #d1eff1;
+    margin-bottom: 4px;
+/*    padding-top: 15px;
+    padding-bottom: 15px;*/
+    border-radius: 3px;
+    min-height: 55px;
+    max-height: 55px;
+    overflow: hidden;
+    -webkit-transition: max-height 1s; 
+    -moz-transition: max-height 1s; 
+    -ms-transition: max-height 1s; 
+    -o-transition: max-height 1s; 
+    transition: max-height 1s, background-color .5s;  
+}
+.school:hover {
+    background-color: #c6f0da;
+    max-height: 250px;
+}
+.school a {
+    /*color: #28A9BC;*/
+}
+.school .school_name {
+    font-size: 18px;
+    padding-top: 15px;
+    /*line-height: 55px;*/
+    /*white-space: nowrap;*/
+    overflow: hidden;
+
+}
+.school .school_types, 
+.school .school_phone, 
+.school .school_address 
+{
+    /*line-height: 55px;*/
+}
+.school .school_address img
+{
+    opacity: .5;
+    position: relative;
+    left: -1px;
+}
+
+.school .school_overflow_cell_name {
+    max-height: 30px;
+}
+
+.school:hover .school_overflow_cell_name {
+    max-height: 250px;
+    position: relative;
+    overflow: visible;
+    padding-bottom: 15px;
+}
+
+.school .school_overflow_cell {
+    max-height: 20px;
+    margin-top: 17px;
+    overflow: hidden;
+    -webkit-transition: max-height .3s; 
+    -moz-transition: max-height .3s; 
+    -ms-transition: max-height .3s; 
+    -o-transition: max-height .3s; 
+    transition: max-height .3s;  
+
+}
+.school .school_phone .school_overflow_cell {
+    max-width: 125px;
+
+}
+.school:hover .school_overflow_cell {
+    max-height: 250px;
+    position: relative;
+    margin-top: 17px;
+    overflow: visible;
+    padding-bottom: 15px;
+}
+
+.detail_school_types .well-sm {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.detail_about h2 {
+    margin-top: 0;
 }

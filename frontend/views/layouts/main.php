@@ -44,10 +44,11 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    if (\frontend\components\Common::getCity()) {
+    if (\frontend\components\Common::getCity() && 
+        array_key_exists(\frontend\components\Common::getCity(), Yii::$app->params['city'])) {
         $city = '/' . \frontend\components\Common::getCity() . '/types';
     } else {
-        $city = '/';
+        $city = '/moscow/types';
     }
 
 
@@ -104,9 +105,9 @@ AppAsset::register($this);
 </div>
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; Драконы <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"></p>
     </div>
 </footer>
 
