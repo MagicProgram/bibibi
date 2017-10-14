@@ -53,21 +53,22 @@ AppAsset::register($this);
 
 
     $menuItems = [
-        ['label' => 'Главная', 'url' => ['/site/index']],
-        ['label' => 'Города', 'url' => '',  'options' => ['class' => 'citys'], 
+        // ['label' => 'Главная', 'url' => ['/site/index']],
+        ['label' => 'По городам', 'url' => '',  'options' => ['class' => 'citys'], 
 
             'items' => [['label' => 'Москва', 'url' => ['/moscow']],
                         ['label' => 'Екатеринбург', 'url' => ['/ekb']],
                         ['label' => 'Ростов-на-Дону', 'url' => ['/rostov']]],
         ],
         ['label' => 'По видам', 'url' => [$city]],
-        ['label' => 'О проекте', 'url' => ['/site/about']],
-        ['label' => 'Контакт', 'url' => ['/site/contact']]];
+        // ['label' => 'О проекте', 'url' => ['/site/about']],
+        // ['label' => 'Контакт', 'url' => ['/site/contact']]
+    ];
         
 
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Логин', 'url' => ['/site/login']];
+        // $menuItems[] = ['label' => 'Регистрация', 'url' => ['/site/signup']];
+        // $menuItems[] = ['label' => 'Логин', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

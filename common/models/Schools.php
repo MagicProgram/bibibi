@@ -43,7 +43,7 @@ class Schools extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'city', 'city', 'active', 'age'], 'required'],
+            [['name', 'city', 'city', 'active', 'age', 'url'], 'required'],
             [['address', 'timetable', 'about'], 'string'],
             // [['url'], 'backend\models\validate\UrlValidate'],
             [['active', 'age'], 'integer'],
