@@ -80,7 +80,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-body">
                 <h2>Информация о школе</h2>
                 <?php if ($model->about != ''): ?>
-                    <p><?= Yii::$app->formatter->asNtext($model->about) ?></p>
+                    <p><?= Yii::$app->formatter->asHtml($model->about) ?></p>
                 <?php else: ?>
                     <p>Описание и дополнительные данные отсутствуют.<br>
                     Чтобы заполнить данные отправьте их нам, мы добавим.</p>
@@ -97,7 +97,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-body">
                     <h2>Расписание занятий</h2>
                     <?php if ($model->timetable != ''): ?>
-                        <?= Yii::$app->formatter->asNtext($model->timetable) ?>
+                        <?= Yii::$app->formatter->asHtml($model->timetable) ?>
                     <?php else: ?>
 
                         <p>У <?= Yii::$app->formatter->asNtext($model->name) ?> 
