@@ -61,7 +61,7 @@ class Schools extends \yii\db\ActiveRecord
             [['name', 'city', 'www', 'email', 'general_image', 'title', 'description', 'h1'], 'string', 'max' => 255],
 
             // для загрузки файла
-            [['file'], 'file', 'extensions' => 'png, jpg'],
+            [['file'], 'file', 'extensions' => 'png, jpg, jpeg, gif'],
             [['del_img'], 'boolean'],
         ];
     }
