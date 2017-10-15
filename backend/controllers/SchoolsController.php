@@ -120,13 +120,10 @@ class SchoolsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         $current_image = $model->general_image;
-        echo '<br><br><br><br><br>';
-        echo file_exists(Yii::getAlias('@frontend/web' . $current_image));
-        echo $model->del_img;
 
         if ($model->load(Yii::$app->request->post())) {
+            $model->updated = date('Y-m-d h:m:s');
             
             $file = UploadedFile::getInstance($model, 'file');
             if ($file && $file->tempName) {
