@@ -5,7 +5,6 @@ use yii\validators\Validator;
 
 
 
-
 class PhoneValidate extends Validator {
 				
 		//$model - принимаем из Validator
@@ -33,6 +32,7 @@ class PhoneValidate extends Validator {
 	         $phones .= preg_replace("/([0-9]{3})([0-9]{3})([0-9]{2})([0-9]{2})/", "+7 ($1) $2-$3-$4", $phone) . ', ';
 	        //strlen — Возвращает длину строки
 	        }  elseif (strlen($phone) == 11) {
+	        	$phone[0] = 7;
 	            $phones .= preg_replace("/([0-9]{1})([0-9]{3})([0-9]{3})([0-9]{2})([0-9]{2})/", "+$1 ($2) $3-$4-$5", $phone) . ', ';
 	        }
 	        
