@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\web\UploadedFile;
+
 
 /**
  * This is the model class for table "{{%schools}}".
@@ -32,6 +34,12 @@ class Schools extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+
+    public $file;
+
+    public $del_img;
+
+
     public static function tableName()
     {
         return '{{%schools}}';
@@ -51,6 +59,10 @@ class Schools extends \yii\db\ActiveRecord
             [['updated'], 'safe'],
             [['phone'], 'backend\models\validate\PhoneValidate'],
             [['name', 'city', 'www', 'email', 'general_image', 'title', 'description', 'h1'], 'string', 'max' => 255],
+
+            // для загрузки файла
+            [['file'], 'file', 'extensions' => 'png, jpg'],
+            [['del_img'], 'boolean'],
         ];
     }
 
@@ -71,13 +83,15 @@ class Schools extends \yii\db\ActiveRecord
             'city' => 'Город',
             'www' => 'Сайт',
             'email' => 'Email',
-            'updated' => 'Создано',
+            'updated' => 'Обновлено',
             'general_image' => 'Картинка',
             'title' => 'SEO Title',
             'description' => 'SEO Description',
             'h1' => 'Заголовок H1',
             'about' => 'Описание',
             'tagsArray' => 'Типы БИ',
+            'del_img' => 'Удалить картинку',
+            'file' => 'Главная картинка',
         ];
     }
 

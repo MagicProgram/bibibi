@@ -13,7 +13,7 @@ use dosamigos\ckeditor\CKEditor;
 
 <div class="schools-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id' => 'schools-form', 'options' => ['enctype' => 'multipart/form-data']]); ?>
     <div class="row">
 
 
@@ -63,20 +63,32 @@ use dosamigos\ckeditor\CKEditor;
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-3">
+            <?php
+                if(isset($model->general_image) && file_exists(Yii::getAlias('@frontend/web' . $model->general_image)))
+                { 
+                    echo Html::img(Yii::getAlias('http://sbi.loc' . $model->general_image), ['class' => 'school_general_image']);
+                    echo $form->field($model, 'del_img')->checkBox(['class'=>'span-1']);
+                }
+            ?>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <?= $form->field($model, 'file')->fileInput() ?>
+        </div>
+        <div class="col-md-6">
             <?= $form->field($model, 'www')->textInput(['maxlength' => true]) ?>
-        </div>
-        <div class="col-md-4">
             <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'updated')->textInput() ?>
+            
         </div>
-        <div class="col-md-4">
-            <?= $form->field($model, 'updated')->input('date') ?>
-        </div>
+
+
 
         <div class="col-md-12">
-
-            <?= $form->field($model, 'general_image')->textInput(['maxlength' => true]) ?>
-
+            
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>

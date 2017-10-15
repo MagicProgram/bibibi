@@ -146,7 +146,7 @@ class SiteController extends Controller
         $type = $this->findTypeModel($type); //->where(['city' => $city])
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Schools::find()->active()->forTypeCity($type->id, $city)->orderBy(['id' => SORT_DESC]),
+            'query' => Schools::find()->active()->forTypeCity($type->id, $city)->orderBy(['name' => SORT_ASC]),
         ]);
 
 
@@ -170,7 +170,7 @@ class SiteController extends Controller
     public function actionAllTypes($city)
     {
 
-        $model = Types::getTypesByCity($city)->all();
+        $model = Types::getTypesByCity($city)->orderBy(['name' => SORT_ASC])->all();
         
 
         $name = $city . 'types';
@@ -319,4 +319,6 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+
 }
