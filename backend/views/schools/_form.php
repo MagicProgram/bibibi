@@ -44,22 +44,24 @@ use dosamigos\ckeditor\CKEditor;
             <?= $form->field($model, 'tagsArray')->checkboxList(Types::find()->select(['name', 'id'])->indexBy('id')->column()) ?>
         </div>
 
-        <div class="col-md-12 row">
+        <div class="row">
+            <div class="col-md-12">
 
-            <div class="col-md-6">
-                <?= $form->field($model, 'about')->widget(CKEditor::className(), [
-                                                            'options' => ['rows' => 6],
-                                                            'preset' => 'full',
-                                                            'clientOptions' => ['format_tags' => 'p;h1;h2;h3;h4;h5;h6;pre;address;div']
-                                                        ]) ?>
-            </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'about')->widget(CKEditor::className(), [
+                                                                'options' => ['rows' => 6],
+                                                                'preset' => 'full',
+                                                                'clientOptions' => ['format_tags' => 'p;h1;h2;h3;h4;h5;h6;pre;address;div']
+                                                            ]) ?>
+                </div>
+                <div class="col-md-6">
+                    <?= $form->field($model, 'timetable')->widget(CKEditor::className(), [
+                                                                'options' => ['rows' => 6],
+                                                                'preset' => 'full',
+                                                                'clientOptions' => ['format_tags' => 'p;h1;h2;h3;h4;h5;h6;pre;address;div']
+                                                            ]) ?>
+                </div>
 
-            <div class="col-md-6">
-                <?= $form->field($model, 'timetable')->widget(CKEditor::className(), [
-                                                            'options' => ['rows' => 6],
-                                                            'preset' => 'full',
-                                                            'clientOptions' => ['format_tags' => 'p;h1;h2;h3;h4;h5;h6;pre;address;div']
-                                                        ]) ?>
             </div>
         </div>
 

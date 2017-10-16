@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\web\UploadedFile;
+use yii\helpers\Html;
 
 
 /**
@@ -160,6 +161,31 @@ class Schools extends \yii\db\ActiveRecord
                 $this->unlink('types', $tag, true);
             }
         }
+    }
+
+    // Обработка сайтов
+    public function getParseSites() {
+
+        $sites = explode(',', $this->www);
+
+        $parsed = '';
+
+        foreach ($sites as $site) {
+
+            $site = trim($site);
+
+            if (stristr($site, 'vk.com')) {
+                $parsed .= Html::a(Html::encode('Вконтакте'), $site, ['class' => 'school_link_vk', 'rel' => 'nofollow']);
+            } elseif (stristr($site, 'instagram.com')) {
+                $parsed .= Html::a(Html::encode('Instagram'), $site, ['class' => 'school_link_inst', 'rel' => 'nofollow']);
+            } elseif (stristr($site, 'facebook.com')) {
+                $parsed .= Html::a(Html::encode('Facebook'), $site, ['class' => 'school_link_facebook', 'rel' => 'nofollow']);
+            } elseif ($site != '') {
+                $parsed .= '<br>' . Html::a(Html::encode('Сайт'), $site, ['class' => 'school_link_view', 'rel' => 'nofollow']);
+            }
+        }
+
+        return $parsed;
     }
 
 }

@@ -137,6 +137,7 @@ class Common extends Component{
         
         } elseif ($data == '' && $generate != '' && $view == 'type') {
             Yii::$app->params['seo']['title'] = 'Школы и секции по ' . $generate['name'] . ' в г. ' . $generate['city'];
+        
         }
  
     }

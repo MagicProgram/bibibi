@@ -48,5 +48,22 @@
 	    margin-top: 0;
 	    overflow: visible;
 	    padding-bottom: 0;
+	    position: static;
+	}
+	.school .school_overflow_cell_name {
+	    max-height: 250px;
+	  	padding-bottom: 15px;
+	}
+
+	.school .school_age {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+
+	}
+
+	.info_box_view {
+		position: relative;
+		left: -15px;
 	}
 }

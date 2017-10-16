@@ -10,6 +10,19 @@ body {
     padding: 0 0 60px;
 }
 
+.navbar-brand img {
+    height: 25px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 2px;
+    position: relative;
+    top: -2px;
+    transition: transform .3s;
+}
+.navbar-brand:hover img {
+    transform: rotate(-180deg);
+}
+
 .wrap > .container {
     padding: 70px 15px 20px;
 }
@@ -169,10 +182,19 @@ a.desc:after {
     padding-bottom: 5px;
 }
 
+.schools_list_header_age  {
+    position: relative;
+    text-align: center;
+}
+.schools_list_header_age span {
+
+}
+
 
 .school {
     background-color: #d1eff1;
     margin-bottom: 4px;
+    position: relative;
 /*    padding-top: 15px;
     padding-bottom: 15px;*/
     border-radius: 3px;
@@ -247,6 +269,13 @@ a.desc:after {
     padding-bottom: 15px;
 }
 
+.school .school_age {
+    line-height: 55px;
+    opacity: .5;
+    font-size: 18px;
+    text-align: center;
+}
+
 .detail_school_types .well-sm {
     display: inline-block;
     margin-bottom: 5px;
@@ -255,3 +284,114 @@ a.desc:after {
 .detail_about h2 {
     margin-top: 0;
 }
+
+.school_general_image {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.school_link_vk,
+.school_link_inst,
+.school_link_facebook,
+.school_link_view 
+{
+    display: inline-block;
+    margin-left: 5px;
+}
+.school_link_vk::before,
+.school_link_inst::before,
+.school_link_facebook::before,
+.school_link_view::before 
+{
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
+    position: relative;
+    top: 2px;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+.school_link_vk::before {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojNjc4QUFGO30uc3Qxe2ZpbGw6I0ZGRkZGRjt9PC9zdHlsZT48Zz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTEyLDM5Ny4xYzAsNjMuNS01MS41LDExNC45LTExNC45LDExNC45SDExNC45QzUxLjUsNTEyLDAsNDYwLjUsMCwzOTcuMVYxMTQuOUMwLDUxLjUsNTEuNSwwLDExNC45LDBoMjgyLjIgICBDNDYwLjUsMCw1MTIsNTEuNSw1MTIsMTE0LjlWMzk3LjF6Ii8+PHBhdGggY2xhc3M9InN0MSIgZD0iTTI1Mi41LDM0OS40aDE5LjdjMCwwLDYtMC43LDktMy45YzIuOC0zLDIuNy04LjcsMi43LTguN3MtMC40LTI2LjUsMTEuOS0zMC40YzEyLjEtMy45LDI3LjcsMjUuNiw0NC4yLDM2LjkgICBjMTIuNSw4LjYsMjIsNi43LDIyLDYuN2w0NC4xLTAuNmMwLDAsMjMuMS0xLjQsMTIuMS0xOS42Yy0wLjktMS41LTYuNC0xMy40LTMyLjgtMzcuOWMtMjcuNi0yNS42LTIzLjktMjEuNSw5LjQtNjUuOSAgIGMyMC4zLTI3LDI4LjQtNDMuNSwyNS45LTUwLjZjLTIuNC02LjctMTcuMy00LjktMTcuMy00LjlsLTQ5LjcsMC4zYzAsMC0zLjctMC41LTYuNCwxLjFjLTIuNywxLjYtNC40LDUuMy00LjQsNS4zICAgcy03LjksMjAuOS0xOC40LDM4LjdjLTIyLjEsMzcuNi0zMC45LDM5LjUtMzQuNiwzNy4yYy04LjQtNS41LTYuMy0yMS44LTYuMy0zMy41YzAtMzYuNCw1LjUtNTEuNS0xMC44LTU1LjUgICBjLTUuNC0xLjMtOS40LTIuMi0yMy4yLTIuM2MtMTcuNy0wLjItMzIuNywwLjEtNDEuMiw0LjJjLTUuNiwyLjgtMTAsOC45LTcuNCw5LjNjMy4zLDAuNCwxMC43LDIsMTQuNyw3LjQgICBjNS4xLDYuOSw0LjksMjIuNSw0LjksMjIuNXMyLjksNDIuOC02LjgsNDguMmMtNi43LDMuNy0xNS45LTMuOC0zNS42LTM3LjljLTEwLjEtMTcuNC0xNy43LTM2LjctMTcuNy0zNi43cy0xLjUtMy42LTQuMS01LjUgICBjLTMuMi0yLjMtNy42LTMuMS03LjYtMy4xbC00Ny4yLDAuM2MwLDAtNy4xLDAuMi05LjcsMy4zYy0yLjMsMi43LTAuMiw4LjQtMC4yLDguNHMzNi45LDg2LjQsNzguOCwxMzAgICBDMjA4LjksMzUyLDI1Mi41LDM0OS40LDI1Mi41LDM0OS40TDI1Mi41LDM0OS40TDI1Mi41LDM0OS40eiIvPjwvZz48L3N2Zz4=);
+    
+}
+
+.school_link_inst::before {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDp1cmwoI1NWR0lEXzFfKTt9LnN0MXtmaWxsOiNGRkZGRkY7fTwvc3R5bGU+PGc+PHJhZGlhbEdyYWRpZW50IGN4PSIyMjUuNDczNyIgY3k9IjIyMi44MDQ2IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDE0LjIxNzUgMCAwIDE0LjIxNzEgLTMwNTUuNzAzOSAtMjYxNS45OTU4KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIGlkPSJTVkdJRF8xXyIgcj0iNDcuNzIxMiI+PHN0b3Agb2Zmc2V0PSI5LjY5Mzg4MGUtMDIiIHN0eWxlPSJzdG9wLWNvbG9yOiNGRkQ4N0EiLz48c3RvcCBvZmZzZXQ9IjAuMTQyNiIgc3R5bGU9InN0b3AtY29sb3I6I0ZDQ0U3OCIvPjxzdG9wIG9mZnNldD0iMC4yMjYzIiBzdHlsZT0ic3RvcC1jb2xvcjojRjVCNDcxIi8+PHN0b3Agb2Zmc2V0PSIwLjMzNzgiIHN0eWxlPSJzdG9wLWNvbG9yOiNFQjhENjUiLz48c3RvcCBvZmZzZXQ9IjAuNDQ5IiBzdHlsZT0ic3RvcC1jb2xvcjojRTM2MDU4Ii8+PHN0b3Agb2Zmc2V0PSIwLjY3ODYiIHN0eWxlPSJzdG9wLWNvbG9yOiNDRDM2OTQiLz48c3RvcCBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiM2NjY4QjAiLz48L3JhZGlhbEdyYWRpZW50PjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01MTIsMzk1LjFjMCw2NC42LTUyLjMsMTE2LjktMTE2LjksMTE2LjlIMTE2LjlDNTIuMyw1MTIsMCw0NTkuNywwLDM5NS4xVjExN0MwLDUyLjQsNTIuNCwwLDExNywwaDI3Ni4zICAgQzQ1OC45LDAsNTEyLDUzLjEsNTEyLDExOC43VjM5NS4xeiIvPjxnPjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0zMjcuMiw3MC42SDE4NC44Yy02My4xLDAtMTE0LjMsNTEuMi0xMTQuMywxMTQuM3YxNDIuM2MwLDYzLjEsNTEuMSwxMTQuMiwxMTQuMywxMTQuMmgxNDIuMyAgICBjNjMuMSwwLDExNC4yLTUxLjEsMTE0LjItMTE0LjJWMTg0LjlDNDQxLjQsMTIxLjcsMzkwLjMsNzAuNiwzMjcuMiw3MC42eiBNNDA1LjgsMzEzLjVjMCw1MS00MS4zLDkyLjMtOTIuMyw5Mi4zaC0xMTUgICAgYy01MSwwLTkyLjMtNDEuMy05Mi4zLTkyLjN2LTExNWMwLTUxLDQxLjMtOTIuMyw5Mi4zLTkyLjNoMTE1YzUxLDAsOTIuMyw0MS40LDkyLjMsOTIuM1YzMTMuNXoiLz48cGF0aCBjbGFzcz0ic3QxIiBkPSJNMjYxLDE1OWMtNTQsMC05Ny43LDQzLjctOTcuNyw5Ny43YzAsNTMuOSw0My43LDk3LjcsOTcuNyw5Ny43YzUzLjksMCw5Ny43LTQzLjcsOTcuNy05Ny43ICAgIEMzNTguNiwyMDIuNywzMTQuOSwxNTksMjYxLDE1OXogTTI2MSwzMTUuNGMtMzIuNSwwLTU4LjgtMjYuMy01OC44LTU4LjhjMC0zMi41LDI2LjMtNTguOCw1OC44LTU4LjhjMzIuNCwwLDU4LjgsMjYuMyw1OC44LDU4LjggICAgQzMxOS43LDI4OS4xLDI5My40LDMxNS40LDI2MSwzMTUuNHoiLz48cGF0aCBjbGFzcz0ic3QxIiBkPSJNMzc2LjcsMTU3LjVjMCwxMy43LTExLjEsMjQuOC0yNC44LDI0LjhjLTEzLjcsMC0yNC44LTExLjEtMjQuOC0yNC44YzAtMTMuNywxMS4xLTI0LjksMjQuOC0yNC45ICAgIEMzNjUuNiwxMzIuNiwzNzYuNywxNDMuNywzNzYuNywxNTcuNXoiLz48L2c+PC9nPjwvc3ZnPg==);
+
+}
+
+.school_link_facebook::before {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojNEY3NkJCO30uc3Qxe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6I0ZGRkZGRjt9PC9zdHlsZT48Zz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTEyLDM5Ny4xYzAsNjMuNS01MS41LDExNC45LTExNC45LDExNC45SDExNC45QzUxLjUsNTEyLDAsNDYwLjUsMCwzOTcuMVYxMTQuOUMwLDUxLjUsNTEuNSwwLDExNC45LDBoMjgyLjIgICBDNDYwLjUsMCw1MTIsNTEuNSw1MTIsMTE0LjlWMzk3LjF6Ii8+PHBhdGggY2xhc3M9InN0MSIgZD0iTTI5OSwxNjQuN2M4LjYtMC4zLDE3LjItMC4xLDI1LjgtMC4xYzEsMCwyLjEsMCwzLjUsMHYtNDQuN2MtNC42LTAuNS05LjQtMS4xLTE0LjItMS4zICAgYy04LjgtMC40LTE3LjYtMC44LTI2LjUtMC42Yy0xMy41LDAuMy0yNi4yLDMuNi0zNy4zLDExLjVjLTEyLjgsOS4yLTE5LjgsMjIuMS0yMi40LDM3LjNjLTEuMSw2LjMtMS40LDEyLjgtMS42LDE5LjIgICBjLTAuMiwxMCwwLDIwLDAsMzAuMXYzLjhoLTQyLjd2NDkuOWg0Mi41djEyNS40aDUxLjlWMjY5LjloNDIuNGMyLjItMTYuNiw0LjMtMzMsNi41LTUwLjFjLTMuNCwwLTYuNSwwLTkuNSwwICAgYy0xMi4xLDAuMS0zOS43LDAtMzkuNywwczAuMS0yNC43LDAuNC0zNS41QzI3OC41LDE2OS42LDI4Ny4zLDE2NS4xLDI5OSwxNjQuN3oiLz48L2c+PC9zdmc+);
+
+}
+
+.school_link_view::before {
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0xNS41LDBDNi45MzksMCwwLDYuOTM5LDAsMTUuNVM2LjkzOSwzMSwxNS41LDMxUzMxLDI0LjA2MSwzMSwxNS41UzI0LjA2MSwwLDE1LjUsMHogTTI4Ljk3NSwxNSAgaC01Ljk5NmMtMC4wNTUtMi4yMTUtMC40NDktNC4zMzEtMS4xNDgtNi4yNjhjMS4zNS0wLjU2MywyLjU5OC0xLjMxMiwzLjczNi0yLjE5N0MyNy41OSw4LjgwNiwyOC44NTUsMTEuNzU1LDI4Ljk3NSwxNXogICBNMTQuOTQ3LDI4Ljk3MmMtMS42NjItMS4zODQtMy4wNTYtMy4xODEtNC4wNzYtNS4yNjhjMS4zMDktMC40MDksMi42OTYtMC42MzMsNC4xMjktMC42Nzl2NS45NDkgIEMxNC45ODIsMjguOTc0LDE0Ljk2NSwyOC45NzMsMTQuOTQ3LDI4Ljk3MnogTTE2LjA1MSwyLjAyOGMxLjg4NiwxLjU3LDMuNDI1LDMuNjczLDQuNDY2LDYuMTI2Yy0xLjQyNiwwLjQ4Ny0yLjk0MSwwLjc3LTQuNTE4LDAuODIgIFYyLjAyNUMxNi4wMTgsMi4wMjYsMTYuMDM0LDIuMDI3LDE2LjA1MSwyLjAyOHogTTE3LjcxNywyLjE5OGMyLjc2LDAuNDU5LDUuMjM2LDEuNzQ4LDcuMTY0LDMuNjE0ICBjLTEuMDQ3LDAuODAzLTIuMTkxLDEuNDgzLTMuNDI4LDEuOTk4QzIwLjU0Myw1LjY1MywxOS4yNjYsMy43NDYsMTcuNzE3LDIuMTk4eiBNMTUsMi4wMjV2Ni45NDkgIGMtMS41NzctMC4wNTEtMy4wOTMtMC4zMzMtNC41MTgtMC44MmMxLjA0MS0yLjQ1MywyLjU4LTQuNTU2LDQuNDY2LTYuMTI2QzE0Ljk2NiwyLjAyNywxNC45ODIsMi4wMjYsMTUsMi4wMjV6IE05LjU0Niw3LjgxMSAgYy0xLjIzNS0wLjUxNS0yLjM4LTEuMTk1LTMuNDI3LTEuOTk4YzEuOTI3LTEuODY2LDQuNDA0LTMuMTU1LDcuMTY0LTMuNjE0QzExLjczMywzLjc0NiwxMC40NTcsNS42NTMsOS41NDYsNy44MTF6IE0xMC4xMDUsOS4wNzYgIEMxMS42NDcsOS42MTEsMTMuMjksOS45MjMsMTUsOS45NzVWMTVIOS4wMjFDOS4wNzUsMTIuOTA2LDkuNDQ2LDEwLjkwNSwxMC4xMDUsOS4wNzZ6IE0xNSwxNnY2LjAyNSAgYy0xLjU3NywwLjA0OC0zLjEwMiwwLjMwNi00LjUzOSwwLjc2OUM5LjU5NSwyMC43MzIsOS4wODQsMTguNDM1LDkuMDIxLDE2SDE1eiBNMTMuMjgzLDI4LjgwMiAgYy0yLjQ3My0wLjQxMS00LjcxOS0xLjQ4OC02LjU0NS0zLjA1MmMwLjk4NS0wLjY4MywyLjA1LTEuMjYxLDMuMTg4LTEuN0MxMC43OTgsMjUuODU4LDExLjkzOSwyNy40NjMsMTMuMjgzLDI4LjgwMnogTTE2LDI4Ljk3NSAgdi01Ljk0OWMxLjQzMiwwLjA0NiwyLjgyLDAuMjcsNC4xMjksMC42NzljLTEuMDIxLDIuMDg3LTIuNDE0LDMuODg0LTQuMDc2LDUuMjY4QzE2LjAzNiwyOC45NzMsMTYuMDE4LDI4Ljk3NCwxNiwyOC45NzV6ICAgTTIxLjA3NCwyNC4wNWMxLjEzNywwLjQzOSwyLjIwMSwxLjAxOCwzLjE4OCwxLjdjLTEuODI2LDEuNTYzLTQuMDcyLDIuNjQxLTYuNTQ1LDMuMDUyQzE5LjA2MSwyNy40NjMsMjAuMjAxLDI1Ljg1OCwyMS4wNzQsMjQuMDV6ICAgTTIwLjUzOSwyMi43OTRjLTEuNDM4LTAuNDYzLTIuOTYzLTAuNzIxLTQuNTM5LTAuNzY5VjE2aDUuOTc5QzIxLjkxNiwxOC40MzUsMjEuNDA0LDIwLjczMiwyMC41MzksMjIuNzk0eiBNMTYsMTVWOS45NzUgIGMxLjcwOS0wLjA1MiwzLjM1Mi0wLjM2Myw0Ljg5NS0wLjg5OGMwLjY1OCwxLjgyOSwxLjAyOSwzLjgzLDEuMDg0LDUuOTI0SDE2eiBNNS40MzQsNi41MzVDNi41NzIsNy40Miw3LjgyLDguMTY5LDkuMTY5LDguNzMyICBDOC40NywxMC42NjksOC4wNzYsMTIuNzg1LDguMDIxLDE1SDIuMDI1QzIuMTQ1LDExLjc1NSwzLjQxLDguODA2LDUuNDM0LDYuNTM1eiBNMi4wMjUsMTZoNS45OTYgIGMwLjA2MiwyLjU1NSwwLjU5Niw0Ljk2OCwxLjUwMyw3LjEzN2MtMS4yNjcsMC40OTQtMi40NDgsMS4xNTItMy41MzgsMS45MzFDMy42MzgsMjIuNzMxLDIuMTU2LDE5LjUzNiwyLjAyNSwxNnogTTI1LjAxNCwyNS4wNjcgIGMtMS4wOS0wLjc3OC0yLjI3MS0xLjQzNy0zLjUzOS0xLjkzMWMwLjkwOC0yLjE2OSwxLjQ0MS00LjU4MiwxLjUwNC03LjEzN2g1Ljk5NkMyOC44NDQsMTkuNTM2LDI3LjM2MSwyMi43MzEsMjUuMDE0LDI1LjA2N3oiIGZpbGw9IiMzMzMzMzIiIGlkPSJ3b3JsZCIvPjwvc3ZnPg==);
+}
+
+.school_links_view {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    position: relative;
+    left: -3px;
+}
+
+.school_address_view {
+    margin-bottom: 10px;
+    font-size: 16px;
+    display: block;
+    position: relative;
+    margin-left: 25px;
+}
+.school_address_view::before {
+    content: '📌 ';
+    position: absolute;
+    left: -25px;
+}
+
+.school_phones_view {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.school_phones_view a {
+    display: block;
+}
+.school_phones_view a:hover {
+    text-decoration: none;
+}
+
+.school_phones_view a::before {
+    content: '☎ ';
+}
+
+.school_age_view {
+    
+}
+
+
+.school_age_view .for_adults::before,
+.school_age_view .for_children::before
+{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+.school_age_view .for_adults::before  {
+    content: '👽 ';
+ }
+.school_age_view .for_children::before  {
+    content: '👶 ';
+ }
+
+.info_box_view {
+    padding-bottom: 25px;
+}
+

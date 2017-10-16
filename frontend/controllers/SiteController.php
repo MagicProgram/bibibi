@@ -85,15 +85,19 @@ class SiteController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Schools::find()->active()->with(['types'])->where(['city' => $city])->orderBy(['id' => SORT_DESC]),
             'pagination' => [
-                'pageSize' => 3,
+                'pageSize' => 10,
                 'forcePageParam' => false,
                 'pageSizeParam' => false,
             ]
         ]);
 
+
+        $modelCity = City::findOne(['name' => $city]);
+
         return $this->render('schools', [
             'dataProvider' => $dataProvider,
             'city' => $city,
+            'modelCity' => $modelCity,
         ]);
     }
 

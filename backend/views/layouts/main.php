@@ -38,6 +38,7 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => 'Школы', 'url' => ['/schools']],
             ['label' => 'Типы', 'url' => ['/types']],
+            ['label' => 'Города', 'url' => ['/city']],
             ['label' => 'Школы и Типы', 'url' => ['/schools-types']],
 
     ];

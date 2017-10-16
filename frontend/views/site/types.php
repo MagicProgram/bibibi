@@ -33,8 +33,11 @@ $this->params['type'] = $type;
 		<div class="col-sm-2 schools_list_header_phone">
 			Телефон
 		</div>
-		<div class="col-sm-5 schools_list_header_address">
+		<div class="col-sm-4 schools_list_header_address">
 			Адрес
+		</div>
+		<div class="col-sm-1 schools_list_header_age">
+			<span title="Для детей или для взрослых и детей">Дети</span>
 		</div>
 	</div>
 

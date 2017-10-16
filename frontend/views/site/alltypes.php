@@ -15,10 +15,22 @@ $this->title = 'Все виды боевых искусств в г. ' . $curren
 
 
 $this->params['breadcrumbs'][] = ['label' => $currentCity, 'url' => ['/' . $city]];
-$this->params['breadcrumbs'][] = ['label' => 'Виды боевых искусств', 'url' => ['/' . $city . '/types']];
+$this->params['breadcrumbs'][] = ['label' => 'Виды боевых искусств'];
 // $this->params['breadcrumbs'][] = $this->title;
+
+$pageinationTitle = '';
+if (array_key_exists('page', $_GET)) {
+	$pageinationTitle =  ' — Страница ' . $_GET['page'];
+}
+
+\frontend\components\Common::setDescription($modelCity->description);
+\frontend\components\Common::setTitle($modelCity->title . $pageinationTitle);
+
 ?>
-    <h1>Виды боевых искусств в г. <?php echo ' ', $currentCity ?></h1>
+
+<h1><?php echo Yii::$app->formatter->asNtext($modelCity->h1) ?></h1>
+
+<div class="col-md-12"><?php echo Yii::$app->formatter->asHtml($modelCity->text) ?></div>
 
 <ul class="types">
 <?php

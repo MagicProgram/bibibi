@@ -38,12 +38,13 @@ AppAsset::register($this);
 
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->params['projectName'],
+        'brandLabel' => Yii::$app->params['logo'] . Yii::$app->params['projectName'],
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+
     if (\frontend\components\Common::getCity() && 
         array_key_exists(\frontend\components\Common::getCity(), Yii::$app->params['city'])) {
         $city = '/' . \frontend\components\Common::getCity() . '/types';

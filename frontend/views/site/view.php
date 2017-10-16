@@ -24,9 +24,10 @@ foreach ($model->types as $type) {
 }
 
 $phonesArray = explode(',', $model->phone);
-$phoneLinks = [];
+$phoneLinks = '';
 foreach ($phonesArray as $phonelink) {
-    $phoneLinks[] = Html::a(Html::encode($phonelink), 'tel:' . $model->phone);
+    $phonelink = trim($phonelink);
+    $phoneLinks .= Html::a(Html::encode($phonelink), 'tel:' . $phonelink);
 }
 
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], array_reverse($crumbs));
@@ -39,29 +40,57 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="row">
+
         <div class="col-sm-6">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="row">
+                        <?php if ($model->general_image != '' && file_exists(Yii::getAlias('@frontend/web' . $model->general_image))): ?>
+                            <?= Html::img($model->general_image, ['class' => 'school_general_image', 'alt' => Html::encode($model->name)]) ?>
+                        <? else: ?>
+                            <img src="/img/chake_not_found_image.png" alt="Чак не нашел картинку этой школы, Чак расстроен." class="school_general_image">
+                        <? endif; ?>
+                        </div>
+                    </div>
 
+                    <div class="col-sm-7 info_box_view">
+                        
+                        <div class="school_address_view">
+                            <?php if ($model->address != ''): ?>
+                                <?= Yii::$app->params['city'][$model->city] . ',' ?>
 
-            <?= DetailView::widget([
-                'model' => $model,
-                'attributes' => [
-                    // 'id',
-                    // [
-                    //     'attribute' => 'category_id',
-                    //     'value' => ArrayHelper::getValue($model, 'category.name'),
-                    // ],
-                    'phone',
-                    'address',
-                    // 'timetable',
-                    'email',
-                    // 'price',
-                    // [
-                    //     'label' => 'Типы',
-                    //     'value' => implode(', ', ArrayHelper::map($model->types, 'id', 'name')),
-                    // ],
-                ],
-            ]) ?>
+                                <? $address = str_replace(' ', '&nbsp;', $model->address);
+                                 echo Yii::$app->formatter->asHtml($address) ?>
+                            <? endif; ?>
+                        </div>
+                        
+                        <div class="school_phones_view">
+                            <?php if ($model->phone != ''): ?>
+                            <?= $phoneLinks ?>
+                            <? endif; ?>
+                        </div>
 
+                        <div class="school_age_view">
+                            <?php if ($model->age == 0): ?>
+                                <span class="for_adults"><?= 'Для взрослых' ?></span>
+                            <? elseif ($model->age == 1): ?>
+                                <span class="for_children"><?= 'Для детей' ?></span>
+                            <? elseif ($model->age == 2): ?>
+                                <span class="for_adults"><?= 'Для взрослых' ?></span>
+                                <span class="for_children"><?= 'Для детей' ?></span>
+                            <? endif; ?>
+                        </div>
+                        
+                        <div class="school_links_view">
+                            <?php if ($model->www != ''): ?>
+                                <?= $model->getParseSites(); ?>
+                            <? endif; ?>
+                        </div>
+                        
+                    </div>
+                </div>           
+            </div>
             <!-- Блок с видами  -->
             <?php if ($typeLinks): ?>
             <div class="detail_school_types">    
