@@ -148,7 +148,7 @@ a.desc:after {
 .navbar-inverse .navbar-nav > .open > a:focus
 {
     background-color: #007e91;
-}
+} 
 
 .nav > li > form > button.logout:focus,
 .nav > li > form > button.logout:hover {
