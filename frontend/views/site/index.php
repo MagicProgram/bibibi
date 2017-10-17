@@ -18,11 +18,11 @@ use yii\helpers\Html;
 		</p>
 
 		<ul class="main_page_cities">
-		<? foreach (Yii::$app->params['city'] as $name => $city): ?>
+		<?php foreach (Yii::$app->params['city'] as $name => $city): ?>
 
 			<li><?= Html::a(Html::encode($city), '/' . $name) ?></li>
 
-		<? endforeach ?>
+		<?php endforeach ?>
 		</ul>
 	</div>
 
@@ -31,9 +31,9 @@ use yii\helpers\Html;
 		<p>Ничего такого, но школы я отсортировал по видам и еще описание присовокупил. </p>
 		<h4>Смотрите какие у нас есть виды:</h4>
 		<p>
-		<? foreach ($types as $type): ?>
+		<?php foreach ($types as $type): ?>
 		<?= $type->name ?>,
-		<? endforeach; ?> космический кунг-фу и они пополняются ежедневно.</p>
+		<?php endforeach; ?> космический кунг-фу и они пополняются ежедневно.</p>
 		
 		
 	</div>
@@ -49,7 +49,7 @@ use yii\helpers\Html;
 
 
 
-<? // ListView::widget([
+<?php // ListView::widget([
     // 'dataProvider' => $dataProvider,
     // 'layout' => "{items}\n{pager}",
     // 'itemView' => '_item',
