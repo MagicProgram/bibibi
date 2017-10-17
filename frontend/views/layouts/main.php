@@ -24,6 +24,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="yandex-verification" content="9db1c3e7029449ac" />
     <?= Html::csrfMetaTags() ?>
     <title><?php echo  Html::encode(\frontend\components\Common::getTitle()); ?></title>
     <meta name="description" content="<?php echo  Html::encode(\frontend\components\Common::getDescription()); ?>"/>

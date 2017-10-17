@@ -128,15 +128,24 @@ class Common extends Component{
         // $data - для какой вьюшки генерировать тайтл
     public function setTitle($data = '', $generate = '', $view = ''){
 
+        $pageinationTitle = '';
+        if (array_key_exists('page', $_GET)) {
+            $pageinationTitle =  ' — Страница ' . $_GET['page'];
+        }
+        $addCity = '';
+        if ($generate != '' && array_key_exists('city', $generate)) {
+            $addCity =  ' ' . $generate['city'] . ' ';
+        }
+
         if ($data != '') {
-            Yii::$app->params['seo']['title'] =  $data;
+            Yii::$app->params['seo']['title'] =  $data . $addCity . $pageinationTitle;
         
         } elseif ($data == '' && $generate != '' && $view == 'view') {
             Yii::$app->params['seo']['title'] = $generate['name'] . ' в ' . $generate['city'] .
                                         '. Информация о школе боевых искусств';
         
         } elseif ($data == '' && $generate != '' && $view == 'type') {
-            Yii::$app->params['seo']['title'] = 'Школы и секции по ' . $generate['name'] . ' в г. ' . $generate['city'];
+            Yii::$app->params['seo']['title'] = 'Школы и секции по ' . $generate['name'] . ' в г. ' . $generate['city'] . $pageinationTitle;
         
         }
  

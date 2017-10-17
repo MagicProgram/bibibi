@@ -42,8 +42,8 @@ foreach ($phonesArray as $phonelink) {
         </div>
     </div>
     <div class="col-sm-1 school_age">
-        <?php if ($model->age == 1 OR $model->age == 2): ?>
+        <?php if ($model->age == 1 || $model->age == 2): ?>
             <span class="for_children" title="Для детей или для взрослых и детей">👶</span>
-        <? endif; ?>
+        <?php endif; ?>
     </div>
 </div>

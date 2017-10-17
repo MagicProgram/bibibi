@@ -2,6 +2,8 @@
 
 namespace common\models;
 
+use common\models\SchoolsTypes;
+
 /**
  * This is the ActiveQuery class for [[Schools]].
  *

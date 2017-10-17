@@ -127,17 +127,12 @@ class SiteController extends Controller
     {
         // $this->layout = "bootstrap";
 
-        // print_r(\frontend\components\Common::getCity()) ; die; 
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => Schools::find()->active()->with(['types'])->orderBy(['id' => SORT_DESC]),
-            'pagination' => [
-                'pageSize' => 10,
-            ]
-        ]);
+        $types = Types::find()->orderBy(['id' => SORT_DESC])->all();
+
 
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'types' => $types,
             // 'city' => $city,
         ]);
 
@@ -151,6 +146,11 @@ class SiteController extends Controller
 
         $dataProvider = new ActiveDataProvider([
             'query' => Schools::find()->active()->forTypeCity($type->id, $city)->orderBy(['name' => SORT_ASC]),
+            'pagination' => [
+                'pageSize' => 10,
+                'forcePageParam' => false,
+                'pageSizeParam' => false,
+            ]
         ]);
 
 

@@ -48,9 +48,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="row">
                         <?php if ($model->general_image != '' && file_exists(Yii::getAlias('@frontend/web' . $model->general_image))): ?>
                             <?= Html::img($model->general_image, ['class' => 'school_general_image', 'alt' => Html::encode($model->name)]) ?>
-                        <? else: ?>
+                        <?php else: ?>
                             <img src="/img/chake_not_found_image.png" alt="Чак не нашел картинку этой школы, Чак расстроен." class="school_general_image">
-                        <? endif; ?>
+                        <?php endif; ?>
                         </div>
                     </div>
 
@@ -60,32 +60,32 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php if ($model->address != ''): ?>
                                 <?= Yii::$app->params['city'][$model->city] . ',' ?>
 
-                                <? $address = str_replace(' ', '&nbsp;', $model->address);
+                                <?php $address = str_replace(' ', '&nbsp;', $model->address);
                                  echo Yii::$app->formatter->asHtml($address) ?>
-                            <? endif; ?>
+                            <?php endif; ?>
                         </div>
                         
                         <div class="school_phones_view">
                             <?php if ($model->phone != ''): ?>
                             <?= $phoneLinks ?>
-                            <? endif; ?>
+                            <?php endif; ?>
                         </div>
 
                         <div class="school_age_view">
                             <?php if ($model->age == 0): ?>
                                 <span class="for_adults"><?= 'Для взрослых' ?></span>
-                            <? elseif ($model->age == 1): ?>
+                            <?php elseif ($model->age == 1): ?>
                                 <span class="for_children"><?= 'Для детей' ?></span>
-                            <? elseif ($model->age == 2): ?>
+                            <?php elseif ($model->age == 2): ?>
                                 <span class="for_adults"><?= 'Для взрослых' ?></span>
                                 <span class="for_children"><?= 'Для детей' ?></span>
-                            <? endif; ?>
+                            <?php endif; ?>
                         </div>
                         
                         <div class="school_links_view">
                             <?php if ($model->www != ''): ?>
                                 <?= $model->getParseSites(); ?>
-                            <? endif; ?>
+                            <?php endif; ?>
                         </div>
                         
                     </div>
@@ -94,10 +94,10 @@ $this->params['breadcrumbs'][] = $this->title;
             <!-- Блок с видами  -->
             <?php if ($typeLinks): ?>
             <div class="detail_school_types">    
-                <? foreach ($typeLinks as $type):  ?>
+                <?php foreach ($typeLinks as $type):  ?>
                     
                 <div class="well well-sm">
-                    ⭐<? echo $type ?>
+                    ⭐<?php echo $type ?>
                 </div>
 
                 <?php endforeach; ?>
@@ -139,7 +139,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         и мы добавим всю интересующую вас информацию удобную для учеников вашей школы.
                         </p>
 
-                    <? endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
 

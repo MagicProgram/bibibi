@@ -159,6 +159,29 @@ a.desc:after {
     outline: none;
 }
 
+
+    /* My styles */
+.main_page p {
+    font-size: 16px;
+    line-height: 26px;
+}
+.main_page p img {
+    max-width: 100%;
+}
+.main_page p .chuck_pixel {
+    vertical-align: bottom;
+}
+.main_page_cities {
+    font-size: 16px;
+    margin-top: 10px;
+    padding-left: 0;
+}
+.main_page_cities li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 20px;
+}
+
 .types {
     padding-left: 0;
     margin-top: 40px;
