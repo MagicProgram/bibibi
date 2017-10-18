@@ -7,6 +7,22 @@ $params = array_merge(
 );
 
 return [
+    'as beforeRequest' => [
+        'class' => 'yii\filters\AccessControl',
+        'rules' => [
+            [
+                'actions' => ['signup'],
+                'allow' => true,
+                'roles' => ['?'],
+            ],
+            [
+                'actions' => ['logout'],
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ],
+    ],
+
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
@@ -25,7 +41,7 @@ return [
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
-            'name' => 'advanced-backend',
+            // 'name' => 'advanced-backend',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

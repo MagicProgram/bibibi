@@ -14,13 +14,10 @@ $this->params['breadcrumbs'][] = $currentCity;
 // $this->params['breadcrumbs'][] = $this->title;
 // $this->params['type'] = $this->title;
 
-$pageinationTitle = '';
-if (array_key_exists('page', $_GET)) {
-	$pageinationTitle =  ' — Страница ' . $_GET['page'];
-}
+
 
 \frontend\components\Common::setDescription($modelCity->description);
-\frontend\components\Common::setTitle($modelCity->title . $pageinationTitle);
+\frontend\components\Common::setTitle($modelCity->title);
 
 ?>
 
