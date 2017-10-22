@@ -8,19 +8,28 @@ $params = array_merge(
 
 return [
     'as beforeRequest' => [
-        'class' => 'yii\filters\AccessControl',
+        'class' => yii\filters\AccessControl::class,
         'rules' => [
             [
-                'actions' => ['signup'],
                 'allow' => true,
-                'roles' => ['?'],
+                'controllers' => ['site'],
+                'actions' => ['login', ''],
             ],
             [
-                'actions' => ['logout'],
-                'allow' => true,
-                'roles' => ['@'],
+                'allow' => false,
+                'roles' => ['client'],
             ],
+            [
+                'allow' => true,
+                'roles' => ['@']
+            ]
         ],
+        'denyCallback' => function () {
+            if( ! Yii::$app->user->isGuest ) {
+                Yii::$app->user->logout();
+            }
+            return Yii::$app->response->redirect(['site/login']);
+        },
     ],
 
     'id' => 'app-backend',
