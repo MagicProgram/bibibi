@@ -24,11 +24,16 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="yandex-verification" content="9db1c3e7029449ac" />
-    <?= Html::csrfMetaTags() ?>
     <title><?php echo  Html::encode(\frontend\components\Common::getTitle()); ?></title>
     <meta name="description" content="<?php echo  Html::encode(\frontend\components\Common::getDescription()); ?>"/>
-    <meta name="keywords" content="<?php // echo  Html::encode(Yii::$app->params['seo']['keywords']); ?>"/>
+    <meta name="keywords" content="Боевые искусства, школы боевых искусств, секции, развитие тела, каталог"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicons/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="yandex-verification" content="9db1c3e7029449ac" />
+    <?= Html::csrfMetaTags() ?>
     <link rel="canonical" href="<?php echo Yii::$app->request->getHostInfo() . '/' . Yii::$app->request->getPathInfo(); ?>" />
     <?php $this->head() ?>
 </head>
