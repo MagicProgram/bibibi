@@ -13,6 +13,7 @@ class m160324_093146_create_types_tables extends Migration
             'title' => $this->string(),
             'description' => $this->string(),
             'h1' => $this->string(),
+            'excerpt' => $this->text(),
             'text' => $this->text(),
             'general_image' => $this->text(),
         ]);

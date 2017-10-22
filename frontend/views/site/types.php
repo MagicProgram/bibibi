@@ -22,6 +22,8 @@ $this->params['type'] = $type;
 ?>
     <h1><?= Html::encode($type->name); echo ' ', $currentCity ?></h1>
 
+    <div class="col-md-12"><?php echo Yii::$app->formatter->asHtml($type->excerpt) ?></div>
+
     <div class="schools_list_header col-sm-12 hidden-xs">
 		<div class="col-sm-3 schools_list_header_name">
 			Школа
