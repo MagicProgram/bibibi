@@ -35,7 +35,6 @@ use dosamigos\ckeditor\CKEditor;
         </div>
 
         <div class="col-md-5">
-            <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'address')->textInput(['rows' => 6]) ?>
         </div>
@@ -96,6 +95,8 @@ use dosamigos\ckeditor\CKEditor;
             <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'h1')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
         </div>
 

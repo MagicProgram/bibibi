@@ -52,14 +52,14 @@ class Schools extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'city', 'city', 'active', 'age', 'url'], 'required'],
+            [['name', 'city', 'city', 'active', 'age'], 'required'],
             [['address', 'timetable', 'about'], 'string'],
             // [['url'], 'backend\models\validate\UrlValidate'],
             [['active', 'age'], 'integer'],
             [['tagsArray'], 'safe'],
             [['updated'], 'safe'],
             [['phone'], 'backend\models\validate\PhoneValidate'],
-            [['name', 'city', 'www', 'email', 'general_image', 'title', 'description', 'h1'], 'string', 'max' => 255],
+            [['name', 'url', 'city', 'www', 'email', 'general_image', 'title', 'description', 'h1'], 'string', 'max' => 255],
 
             // для загрузки файла
             [['file'], 'file', 'extensions' => 'png, jpg, jpeg, gif'],
@@ -76,7 +76,7 @@ class Schools extends \yii\db\ActiveRecord
             'id' => 'ID',
             'name' => 'Название школы',
             'address' => 'Адрес',
-            'url' => 'Ссылка (латиница)',
+            'url' => 'Ссылка',
             'timetable' => 'Расписание',
             'phone' => 'Телефоны',
             'active' => 'Опубликовано',

@@ -17,6 +17,9 @@ use Imagine\Image\BoxInterface;
 use yii\filters\AccessControl;
 
 
+use backend\services\DataHelpers;
+
+
 /**
  * SchoolsController implements the CRUD actions for Schools model.
  */
@@ -94,6 +97,11 @@ class SchoolsController extends Controller
 
          if ($model->load(Yii::$app->request->post())) {
             $model->updated = date('Y-m-d h:m:s');
+
+            if (!$model->url){
+                $model->url = DataHelpers::cyrSlug($model->name);
+            }
+
             $file = UploadedFile::getInstance($model, 'file');
             if ($file && $file->tempName) {
                 $model->file = $file;
@@ -144,8 +152,15 @@ class SchoolsController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model->updated = date('Y-m-d h:m:s');
+
+            if (!$model->url){
+                $model->url = DataHelpers::cyrSlug($model->name);
+            }
+            
             
             $file = UploadedFile::getInstance($model, 'file');
+            
+
             if ($file && $file->tempName) {
                 $model->file = $file;
                 if ($model->validate(['file'])) {
@@ -236,6 +251,14 @@ class SchoolsController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+
+
+    public function actionTest()
+    {
+        
+        echo DataHelpers::cyrSlug('с прищуром');
     }
 
     /**
