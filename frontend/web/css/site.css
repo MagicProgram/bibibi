@@ -17,10 +17,11 @@ body {
     margin-left: 2px;
     position: relative;
     top: -2px;
-    transition: transform .3s;
+    transition: transform .6s;
+    left: 0;
 }
 .navbar-brand:hover img {
-    transform: rotate(-180deg);
+    transform: rotate(-360deg);
 }
 
 .wrap > .container {
@@ -218,21 +219,18 @@ a.desc:after {
     background-color: #d1eff1;
     margin-bottom: 4px;
     position: relative;
-/*    padding-top: 15px;
-    padding-bottom: 15px;*/
     border-radius: 3px;
     min-height: 55px;
     max-height: 55px;
     overflow: hidden;
-    -webkit-transition: max-height 1s; 
-    -moz-transition: max-height 1s; 
-    -ms-transition: max-height 1s; 
-    -o-transition: max-height 1s; 
-    transition: max-height 1s, background-color .5s;  
+    transition: background-color .3s, max-height 2s 22s;
+
 }
 .school:hover {
+    transition: background-color .1s, max-height .5s;
     background-color: #c6f0da;
-    max-height: 250px;
+    max-height: 200px;
+    overflow: visible;
 }
 .school a {
     /*color: #28A9BC;*/
@@ -256,10 +254,27 @@ a.desc:after {
     opacity: .5;
     position: relative;
     left: -1px;
+    display: none;
+}
+.school .school_address .school_overflow_cell::before
+{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIyNCIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTEwMjguNCkiPjxwYXRoIGQ9Im0xMiAwYy00LjQxODMgMi4zNjg1ZS0xNSAtOCAzLjU4MTctOCA4IDAgMS40MjEgMC4zODE2IDIuNzUgMS4wMzEyIDMuOTA2IDAuMTA3OSAwLjE5MiAwLjIyMSAwLjM4MSAwLjM0MzggMC41NjNsNi42MjUgMTEuNTMxIDYuNjI1LTExLjUzMWMwLjEwMi0wLjE1MSAwLjE5LTAuMzExIDAuMjgxLTAuNDY5bDAuMDYzLTAuMDk0YzAuNjQ5LTEuMTU2IDEuMDMxLTIuNDg1IDEuMDMxLTMuOTA2IDAtNC40MTgzLTMuNTgyLTgtOC04em0wIDRjMi4yMDkgMCA0IDEuNzkwOSA0IDQgMCAyLjIwOS0xLjc5MSA0LTQgNC0yLjIwOTEgMC00LTEuNzkxLTQtNCAwLTIuMjA5MSAxLjc5MDktNCA0LTR6IiBmaWxsPSIjZTc0YzNjIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDEwMjguNCkiLz48cGF0aCBkPSJtMTIgM2MtMi43NjE0IDAtNSAyLjIzODYtNSA1IDAgMi43NjEgMi4yMzg2IDUgNSA1IDIuNzYxIDAgNS0yLjIzOSA1LTUgMC0yLjc2MTQtMi4yMzktNS01LTV6bTAgMmMxLjY1NyAwIDMgMS4zNDMxIDMgM3MtMS4zNDMgMy0zIDMtMy0xLjM0MzEtMy0zIDEuMzQzLTMgMy0zeiIgZmlsbD0iI2MwMzkyYiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxMDI4LjQpIi8+PC9nPjwvc3ZnPg==);
+    -webkit-background-size: 100%;
+    background-size: 100%;
+    opacity: .5;
+    left: -1px;
+    vertical-align: middle;
 }
 
 .school .school_overflow_cell_name {
     max-height: 30px;
+    transition: max-height 2s .3s, padding-bottom 2s .3s;
+    padding-bottom: 15px;
 }
 
 .school:hover .school_overflow_cell_name {
@@ -267,29 +282,29 @@ a.desc:after {
     position: relative;
     overflow: visible;
     padding-bottom: 15px;
+    transition: max-height .6s;
 }
 
 .school .school_overflow_cell {
-    max-height: 20px;
+    max-height: 25px;
     margin-top: 17px;
     overflow: hidden;
-    -webkit-transition: max-height .3s; 
-    -moz-transition: max-height .3s; 
-    -ms-transition: max-height .3s; 
-    -o-transition: max-height .3s; 
-    transition: max-height .3s;  
+    transition: max-height 2s .3s, padding-bottom 2s .3s;
+    padding-bottom: 15px;  
 
 }
-.school .school_phone .school_overflow_cell {
-    max-width: 125px;
 
-}
 .school:hover .school_overflow_cell {
     max-height: 250px;
     position: relative;
     margin-top: 17px;
     overflow: visible;
     padding-bottom: 15px;
+    transition: max-height .6s;
+}
+
+.school .school_phone .school_overflow_cell {
+    max-width: 125px;
 }
 
 .school .school_age {

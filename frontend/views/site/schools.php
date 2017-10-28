@@ -49,6 +49,14 @@ $this->params['breadcrumbs'][] = $currentCity;
     'dataProvider' => $dataProvider,
     'layout' => "{items}\n{pager}",
     'itemView' => '_item',
+    'itemOptions' => [
+        'tag' => false,
+    ],
+    'options' => [
+        'tag' => 'div',
+        'class' => 'schools-list',
+        'id' => 'schools-list',
+    ],
 ]); ?>
 
 
