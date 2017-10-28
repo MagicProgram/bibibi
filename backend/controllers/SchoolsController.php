@@ -96,11 +96,9 @@ class SchoolsController extends Controller
         $model = new Schools();
 
          if ($model->load(Yii::$app->request->post())) {
-            $model->updated = date('Y-m-d h:m:s');
+            $model->updated = date("Y-m-d H:i:s");
 
-            if (!$model->url){
-                $model->url = DataHelpers::cyrSlug($model->name);
-            }
+            
 
             $file = UploadedFile::getInstance($model, 'file');
             if ($file && $file->tempName) {
@@ -151,7 +149,7 @@ class SchoolsController extends Controller
         $current_image = $model->general_image;
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->updated = date('Y-m-d h:m:s');
+            $model->updated = date("Y-m-d H:i:s");
 
             if (!$model->url){
                 $model->url = DataHelpers::cyrSlug($model->name);

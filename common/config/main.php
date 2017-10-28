@@ -4,7 +4,16 @@
 
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'timeZone' => 'Europe/Moscow',
     'components' => [
+        // 'formatter' => [
+        //        'class' => 'yii\i18n\Formatter',
+        //        'defaultTimeZone' => 'Europe/Moscow',
+        //        'timeZone' => 'GMT+3',
+        //        'dateFormat' => 'd MMMM yyyy',
+        //        'datetimeFormat' => 'd-M-Y H:i:s',
+        //        'timeFormat' => 'H:i:s', 
+        // ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
