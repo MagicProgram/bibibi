@@ -83,4 +83,13 @@ class Types extends \yii\db\ActiveRecord
         ->where(['city' => $city])
         ->groupBy('{{%types}}.id');
     }
+    public function getTypesByCityForKids($city = 'moscow')
+    {
+        return Types::find()
+        ->select(['{{%types}}.*', 'types_count' => new Expression('COUNT({{%types}}.id)')])
+        ->joinWith(['schools'], false)
+        ->where(['city' => $city])
+        ->andWhere(['age' => [1,2]])
+        ->groupBy('{{%types}}.id');
+    }
 }

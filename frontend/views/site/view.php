@@ -9,7 +9,6 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
 
-$this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::$app->params['city'][$model->city], 'url' => ['/' . $city]];
 
 \frontend\components\Common::setDescription($model->description, ['name' => $model->name, 'city' => Yii::$app->params['city'][$model->city]], 'view');
@@ -32,12 +31,12 @@ foreach ($phonesArray as $phonelink) {
 
 $this->params['breadcrumbs'] = array_merge($this->params['breadcrumbs'], array_reverse($crumbs));
 
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = $model->name;
 // $this->params['category'] = $model->category;
 ?>
 <div class="school-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($model->name) ?></h1>
 
     <div class="row">
 
@@ -75,10 +74,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php if ($model->age == 0): ?>
                                 <span class="for_adults"><?= 'Для взрослых' ?></span>
                             <?php elseif ($model->age == 1): ?>
-                                <span class="for_children"><?= 'Для детей' ?></span>
+                                <span class="for_children">
+                                    <?= Html::a(Html::encode('Для детей'), ['/'. $model->city . '/for-kids']) ?>
+                                </span>
                             <?php elseif ($model->age == 2): ?>
                                 <span class="for_adults"><?= 'Для взрослых' ?></span>
-                                <span class="for_children"><?= 'Для детей' ?></span>
+                                <span class="for_children"><?= Html::a(Html::encode('Для детей'), ['/'. $model->city . '/for-kids']) ?></span>
                             <?php endif; ?>
                         </div>
                         

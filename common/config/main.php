@@ -28,6 +28,8 @@ return [
                 '<city:(ekb|moscow|rostov|spb)>/<id:\d+>-<name:[a-zA-Z0-9-]+>' => 'site/view',
                 '<city:(ekb|moscow|rostov|spb|site)>/types' => 'site/all-types',
                 '<city:(ekb|moscow|rostov|spb)>/types/<type:[a-zA-Z0-9-]+>' => 'site/types',
+                '<city:(ekb|moscow|rostov|spb)>/for-kids' => 'kids/schools-for-kids',
+                '<city:(ekb|moscow|rostov|spb)>/types/<type:[a-zA-Z0-9-]+>/for-kids' => 'kids/type-for-kids',
                 // 'pages/<view:[a-zA-Z0-9-]+>' => 'main/main/page',
                 // 'view-advert/<id:\d+>' => 'main/main/view-advert',
                 // 'cabinet/<action_cabinet:(settings|change-password)>' => 'cabinet/default/<action_cabinet>'

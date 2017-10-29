@@ -41,7 +41,6 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->params['logo'] . Yii::$app->params['projectName'],
@@ -60,6 +59,7 @@ AppAsset::register($this);
 
 
     $menuItems = [       
+        ['label' => 'Для детей', 'url' => '/' . $city . '/for-kids'],
         ['label' => 'По видам', 'url' => '/' . $city . '/types'],
         ['label' => Yii::$app->params['city'][$city],  'options' => ['class' => 'citys'], 
 

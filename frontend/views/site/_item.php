@@ -1,5 +1,6 @@
 <?php
 
+
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
@@ -7,7 +8,11 @@ use yii\helpers\Html;
 
 $typeLinks = [];
 foreach ($model->types as $type) {
-    $typeLinks[] = Html::a(Html::encode($type->name), [$model->city . '/types/' . $type->url]);
+    $typeurl = '';
+    if (\Yii::$app->controller->id == 'kids') {
+        $typeurl = $type->url . '/for-kids'; 
+    }
+    $typeLinks[] = Html::a(Html::encode($type->name), [$model->city . '/types/' . $typeurl]);
 }
 $phonesArray = explode(',', $model->phone);
 $phoneLinks = [];

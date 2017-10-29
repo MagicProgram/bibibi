@@ -97,6 +97,11 @@ class Common extends Component{
                                         'Школы боевых искусств, фитнес залы, секции боевых искусств по виду ' . 
                                         $generate['name'] . ' в городе ' . $generate['city'] .
                                         '. Каталог с адресами и телефонами. Краткое описание вида боевого искусства.';
+        } elseif ($data == '' && $generate != '' && $view == 'typekids') {
+            Yii::$app->params['seo']['description'] = 
+                                        'Школы боевых искусств и единоборств, секции по виду ' . 
+                                        $generate['name'] . ' для детей в городе ' . $generate['city'] .
+                                        '. Каталог с адресами и телефонами. Краткое описание единоборства.';
         }
  
     }
@@ -145,6 +150,10 @@ class Common extends Component{
         
         } elseif ($data == '' && $generate != '' && $view == 'type') {
             Yii::$app->params['seo']['title'] = 'Школы и секции по ' 
+            . $generate['name'] . ' в г. ' . $generate['city'] . $pageinationTitle;
+        
+        } elseif ($data == '' && $generate != '' && $view == 'typekids') {
+            Yii::$app->params['seo']['title'] = 'Школы и секции для детей по ' 
             . $generate['name'] . ' в г. ' . $generate['city'] . $pageinationTitle;
         
         }
