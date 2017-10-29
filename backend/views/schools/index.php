@@ -31,16 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'name',
             ],
-            'url',
-            [
-                'label' => 'Types',
-                'attribute' => 'type_id',
-                'filter' => Types::find()->select(['name', 'id'])->indexBy('id')->column(),
-                'value' => function (Schools $schools) {
-                        return implode(', ', ArrayHelper::map($schools->types, 'id', 'name'));
-                    },
+            // 'url',
+            // [
+            //     'label' => 'Types',
+            //     'attribute' => 'type_id',
+            //     'filter' => Types::find()->select(['name', 'id'])->indexBy('id')->column(),
+            //     'value' => function (Schools $schools) {
+            //             return implode(', ', ArrayHelper::map($schools->types, 'id', 'name'));
+            //         },
 
-            ],
+            // ],
             // 'address:ntext',
             // 'timetable:ntext',
             // 'phone',
@@ -51,10 +51,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             // 'age',
             [
-                'label' => 'City',
+                'attribute' => 'created',
+                'format' => ['date', 'php:Y-m-d']
+            ],
+            [
+                'label' => 'Город',
                 'attribute' => 'city',
-                'filter' => Schools::find()->select(['city'])->indexBy('city')->groupBy('city')->column(),
-                'value' => 'city',
+                'filter' => Yii::$app->params['city'],
+                'value' => function ($data) {
+                    return Yii::$app->params['city'][$data->city];
+                }
+                // 'value' => Yii::$app->params['city'][$city],
             ],
             // 'www',
             // 'email:email',

@@ -20,6 +20,8 @@ use dosamigos\ckeditor\CKEditor;
 
         <div class="col-md-5">
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'address')->textInput(['rows' => 6]) ?>
         </div>
 
         <div class="col-md-2">
@@ -34,10 +36,7 @@ use dosamigos\ckeditor\CKEditor;
             <?= $form->field($model, 'active')->dropDownList([0 => 'Нет', 1 => 'Да'], ['options' => ['1' => ['Selected'=>true]]]) ?>
         </div>
 
-        <div class="col-md-5">
-            <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'address')->textInput(['rows' => 6]) ?>
-        </div>
+        
 
         <div class="col-md-7">
             <?= $form->field($model, 'tagsArray')->checkboxList(Types::find()->select(['name', 'id'])->indexBy('id')->column()) ?>
@@ -82,7 +81,8 @@ use dosamigos\ckeditor\CKEditor;
         <div class="col-md-6">
             <?= $form->field($model, 'www')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
-            <?= $form->field($model, 'updated')->textInput() ?>
+            <?= $form->field($model, 'updated'); ?>
+            <?= $form->field($model, 'created'); ?>
             
         </div>
 

@@ -20,6 +20,7 @@ use yii\helpers\Html;
  * @property string $city
  * @property string $www
  * @property string $email
+ * @property string $created
  * @property string $updated
  * @property string $general_image
  * @property string $title
@@ -57,7 +58,7 @@ class Schools extends \yii\db\ActiveRecord
             // [['url'], 'backend\models\validate\UrlValidate'],
             [['active', 'age'], 'integer'],
             [['tagsArray'], 'safe'],
-            [['updated'], 'safe'],
+            [['updated', 'created'], 'safe'],
             [['phone'], 'backend\models\validate\PhoneValidate'],
             [['name', 'url', 'city', 'www', 'email', 'general_image', 'title', 'description', 'h1'], 'string', 'max' => 255],
 
@@ -84,7 +85,8 @@ class Schools extends \yii\db\ActiveRecord
             'city' => 'Город',
             'www' => 'Сайт',
             'email' => 'Email',
-            'updated' => 'Обновлено',
+            'created' => 'Дата создания',
+            'updated' => 'Дата обновления',
             'general_image' => 'Картинка',
             'title' => 'SEO Title',
             'description' => 'SEO Description',

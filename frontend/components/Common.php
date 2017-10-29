@@ -138,14 +138,14 @@ class Common extends Component{
         }
 
         if ($data != '') {
-            Yii::$app->params['seo']['title'] =  $data . $addCity . $pageinationTitle;
+            Yii::$app->params['seo']['title'] =  $data . $pageinationTitle;
         
         } elseif ($data == '' && $generate != '' && $view == 'view') {
-            Yii::$app->params['seo']['title'] = $generate['name'] . ' в ' . $generate['city'] .
-                                        '. Информация о школе боевых искусств';
+            Yii::$app->params['seo']['title'] = $generate['name'] . ', ' . $generate['city'];
         
         } elseif ($data == '' && $generate != '' && $view == 'type') {
-            Yii::$app->params['seo']['title'] = 'Школы и секции по ' . $generate['name'] . ' в г. ' . $generate['city'] . $pageinationTitle;
+            Yii::$app->params['seo']['title'] = 'Школы и секции по ' 
+            . $generate['name'] . ' в г. ' . $generate['city'] . $pageinationTitle;
         
         }
  

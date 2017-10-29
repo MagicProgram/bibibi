@@ -96,9 +96,11 @@ class SchoolsController extends Controller
         $model = new Schools();
 
          if ($model->load(Yii::$app->request->post())) {
-            $model->updated = date("Y-m-d H:i:s");
+            $model->created = date("Y-m-d H:i:s");
 
-            
+            if (!$model->url){
+                $model->url = DataHelpers::cyrSlug($model->name);
+            }
 
             $file = UploadedFile::getInstance($model, 'file');
             if ($file && $file->tempName) {
@@ -130,6 +132,7 @@ class SchoolsController extends Controller
                 }
             } 
             if ($model->save()) {
+                \Yii::$app->getSession()->setFlash('bratok', 'Спасибо браток! Ты создал еще одну карточку. Ура!');
                 return $this->redirect(['update', 'id' => $model->id]);
             }               
             

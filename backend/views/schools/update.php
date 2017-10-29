@@ -13,6 +13,11 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="schools-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php if (Yii::$app->session->hasFlash('bratok')): ?>
+	<div class="alert alert-success">
+   		<?= Yii::$app->session->getFlash('bratok'); ?>
+	</div>
+	<?php  endif; ?>
 
     <?= $this->render('_form', [
         'model' => $model,
