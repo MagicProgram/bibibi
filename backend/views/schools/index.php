@@ -30,6 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'id',
             [
                 'attribute' => 'name',
+                'value' => function ($data) {
+                    // return Yii::$app->params['city'][$data->city];
+                    return Html::a($data->name, ['update', 'id' => $data->id]);
+                },
+                'format' => 'html',
             ],
             // 'url',
             // [
