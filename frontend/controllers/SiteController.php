@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -83,7 +84,11 @@ class SiteController extends Controller
     public function actionSchools($city) {
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Schools::find()->active()->with(['types'])->where(['city' => $city])->orderBy(['id' => SORT_DESC]),
+            'query' => Schools::find()
+                            ->with(['types'])
+                            ->where(['city' => $city])
+                            ->active()
+                            ->orderBy(['id' => SORT_DESC]),
             'pagination' => [
                 'pageSize' => 10,
                 'forcePageParam' => false,
@@ -115,10 +120,10 @@ class SiteController extends Controller
 
     protected function findProductModel($id)
     {
-        if (($model = Schools::findOne($id)) !== null) {
+        if (($model = Schools::findOne(['id' => $id, 'active' => 1])) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('404 Страница не найдена');
         }
     }
 
@@ -145,7 +150,10 @@ class SiteController extends Controller
         $type = $this->findTypeModel($type); //->where(['city' => $city])
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Schools::find()->active()->forTypeCity($type->id, $city)->orderBy(['name' => SORT_ASC]),
+            'query' => Schools::find()
+                            ->forTypeCity($type->id, $city)
+                            ->active()
+                            ->orderBy(['name' => SORT_ASC]),
             'pagination' => [
                 'pageSize' => 10,
                 'forcePageParam' => false,
