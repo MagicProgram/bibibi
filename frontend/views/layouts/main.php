@@ -32,7 +32,7 @@ AppAsset::register($this);
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
     <link rel="manifest" href="/img/favicons/manifest.json">
     <meta name="theme-color" content="#ffffff">
-    <meta name="yandex-verification" content="9db1c3e7029449ac" />
+    <meta name="yandex-verification" content="e9ba1b4cd718381c" />
     <?= Html::csrfMetaTags() ?>
     <link rel="canonical" href="<?php echo Yii::$app->request->getHostInfo() . '/' . Yii::$app->request->getPathInfo(); ?>" />
     <?php $this->head() ?>
