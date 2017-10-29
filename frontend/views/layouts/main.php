@@ -53,23 +53,20 @@ AppAsset::register($this);
 
     if (\frontend\components\Common::getCity() && 
         array_key_exists(\frontend\components\Common::getCity(), Yii::$app->params['city'])) {
-        $city = '/' . \frontend\components\Common::getCity() . '/types';
+        $city = \frontend\components\Common::getCity();
     } else {
-        $city = '/moscow/types';
+        $city = 'moscow';
     }
 
 
-    $menuItems = [
-        // ['label' => 'Главная', 'url' => ['/site/index']],
-        ['label' => 'По городам', 'url' => '',  'options' => ['class' => 'citys'], 
+    $menuItems = [       
+        ['label' => 'По видам', 'url' => '/' . $city . '/types'],
+        ['label' => Yii::$app->params['city'][$city],  'options' => ['class' => 'citys'], 
 
             'items' => [['label' => 'Москва', 'url' => ['/moscow']],
                         ['label' => 'Екатеринбург', 'url' => ['/ekb']],
                         ['label' => 'Ростов-на-Дону', 'url' => ['/rostov']]],
         ],
-        ['label' => 'По видам', 'url' => [$city]],
-        // ['label' => 'О проекте', 'url' => ['/site/about']],
-        // ['label' => 'Контакт', 'url' => ['/site/contact']]
     ];
         
 
@@ -92,17 +89,7 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
     
-
-    <div class="menu-city">
-        <a href="">Москва</a><br>
-        <a href="">Екатеринбург</a><br>
-        <a href="">Ростов-на-Дону</a><br>  
-    </div>
-
-    
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

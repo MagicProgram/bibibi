@@ -1,8 +1,17 @@
 @media (max-width: 767px) {
+
+	.navbar-brand {
+		font-size: 16px;
+	}
+
+	.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+		color: #fff;
+	}
+
 	.school {
 		max-height: 500px;
 		padding-bottom: 15px;
-  }
+  	}
 	.school .school_overflow_cell {
 		max-height: 500px;
 		padding-bottom: 0;

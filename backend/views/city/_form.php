@@ -15,8 +15,6 @@ use dosamigos\ckeditor\CKEditor;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <? // $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
