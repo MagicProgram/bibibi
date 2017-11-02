@@ -48,7 +48,7 @@ use yii\helpers\Html;
 		<div class="col-md-12">
 			<div class="last_products">
 				<h3>Последние добавленные школы единоборств</h3>
-				<? foreach ($last_schools as $school): ?>
+				<? foreach ($last_schools as $school) { ?>
 				<div class="last_product_box">
 					<a href="/<?php echo $school['city'] ?>/<?php echo $school['id'] ?>-<?php echo $school['url'] ?>" class="last_product_box_img">
 						<img src="<?php echo $school['general_image'] ?>" alt="<?php echo $school['name'] ?>">
@@ -57,7 +57,7 @@ use yii\helpers\Html;
 						<?php echo $school['name'] ?>
 					</a>
 				</div>
-				<? endforeach; ?>
+				<? } ?>
 			</div>
 		</div>
 
