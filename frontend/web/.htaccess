@@ -4,6 +4,15 @@
   Options -Indexes
 </IfModule>
 
+#Redirect 301 /rostov-on-don/ /rostov
+#Redirect 301 /ekaterinburg/ /ekb
+#Redirect 301 /moscow/ /ekb
+#Redirect 301 /saint-petersburg/ /spb
+#Redirect 301 /rostov-on-don /rostov
+#Redirect 301 /ekaterinburg /ekb
+#Redirect 301 /saint-petersburg /spb
+
+
 # Mod_Rewrite
 <IfModule mod_rewrite.c>
   Options +FollowSymlinks

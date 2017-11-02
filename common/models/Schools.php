@@ -183,6 +183,8 @@ class Schools extends \yii\db\ActiveRecord
                 $parsed .= Html::a(Html::encode('Instagram'), $site, ['class' => 'school_link_inst', 'rel' => 'nofollow']);
             } elseif (stristr($site, 'facebook.com')) {
                 $parsed .= Html::a(Html::encode('Facebook'), $site, ['class' => 'school_link_facebook', 'rel' => 'nofollow']);
+            } elseif (stristr($site, 'youtube.com')) {
+                $parsed .= Html::a(Html::encode('Youtube'), $site, ['class' => 'school_link_youtube', 'rel' => 'nofollow']);
             } elseif ($site != '') {
                 $parsed .= '<br>' . Html::a(Html::encode('Сайт'), $site, ['class' => 'school_link_view', 'rel' => 'nofollow']);
             }
