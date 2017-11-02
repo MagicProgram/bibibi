@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\Html;
-// use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 
@@ -45,17 +44,28 @@ use yii\helpers\Html;
 		<div class="col-md-12">
 			<p>💥 Скоро здесь появится много всего интересного</p>
 		</div>
+
+		<div class="col-md-12">
+			<div class="last_products">
+				<h3>Последние добавленные школы единоборств</h3>
+				<? foreach ($last_schools as $school): ?>
+				<div class="last_product_box">
+					<a href="/<?php echo $school['city'] ?>/<?php echo $school['id'] ?>-<?php echo $school['url'] ?>" class="last_product_box_img">
+						<img src="<?php echo $school['general_image'] ?>" alt="<?php echo $school['name'] ?>">
+					</a>
+					<a href="/<?php echo $school['city'] ?>/<?php echo $school['id'] ?>-<?php echo $school['url'] ?>" class="last_product_box_name">
+						<?php echo $school['name'] ?>
+					</a>
+				</div>
+				<? endforeach; ?>
+			</div>
+		</div>
+
 	</div>
 </div>
 
 
 
-
-<?php // ListView::widget([
-    // 'dataProvider' => $dataProvider,
-    // 'layout' => "{items}\n{pager}",
-    // 'itemView' => '_item',
-// ]); ?>
 
 
 

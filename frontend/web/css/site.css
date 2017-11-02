@@ -450,3 +450,39 @@ a.desc:after {
     padding-bottom: 25px;
 }
 
+.last_products {
+    clear: both;
+}
+.last_product_box {
+    width: 150px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+.last_product_box .last_product_box_img {
+    border-radius: 50%;
+    background-color: #FFE7C1;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    display: inline-block;
+    line-height: 150px;
+    text-align: center;
+}
+.last_product_box .last_product_box_name {
+    text-align: center;
+    display: inline-block;
+}
+
+.last_product_box img {
+    min-width: 150px;
+    max-width: 100%;
+    opacity: .5;
+    text-align: center;
+}
+.last_product_box:hover img {
+    opacity: 1;
+}

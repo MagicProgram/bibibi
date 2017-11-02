@@ -135,10 +135,16 @@ class SiteController extends Controller
 
         $types = Types::find()->orderBy(['id' => SORT_DESC])->all();
 
+        $last_schools = Schools::find()
+                            ->active()
+                            ->orderBy(['id' => SORT_DESC])
+                            ->where('general_image !=""' )
+                            ->limit(6)->all();
+
 
         return $this->render('index', [
             'types' => $types,
-            // 'city' => $city,
+            'last_schools' => $last_schools,
         ]);
 
         
