@@ -20,7 +20,7 @@ use yii\helpers\Html;
 			<ul class="main_page_cities">
 			<?php foreach (Yii::$app->params['city'] as $name => $city): ?>
 
-				<li><?= Html::a(Html::encode($city), '/' . $name) ?></li>
+				<li><?php echo Html::a(Html::encode($city), '/' . $name) ?></li>
 
 			<?php endforeach ?>
 			</ul>
@@ -32,7 +32,7 @@ use yii\helpers\Html;
 			<h4>Смотрите какие у нас есть виды:</h4>
 			<p>
 			<?php foreach ($types as $type): ?>
-			<?= $type->name ?>,
+			<?php echo $type->name ?>,
 			<?php endforeach; ?> космический кунг-фу и они пополняются ежедневно.</p>
 			
 			
@@ -57,7 +57,7 @@ use yii\helpers\Html;
 						<?php echo $school['name'] ?>
 					</a>
 				</div>
-				<? } ?>
+				<?php } ?>
 			</div>
 		</div>
 
