@@ -478,11 +478,17 @@ a.desc:after {
 }
 
 .last_product_box img {
-    min-width: 150px;
-    max-width: 100%;
-    opacity: .5;
+
+    max-width:300px;
+    max-height: 200px;
+    position: relative;
+    /*left: -150px;*/
+    opacity: .8;
     text-align: center;
+    transition: max-width .3s;
 }
+
 .last_product_box:hover img {
-    opacity: 1;
+    opacity: .9;
+    max-width: 150px;
 }
