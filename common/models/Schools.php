@@ -54,7 +54,7 @@ class Schools extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'city', 'active', 'age'], 'required'],
-            [['address', 'timetable', 'about'], 'string'],
+            [['address', 'timetable', 'about', 'location'], 'string'],
             // [['url'], 'backend\models\validate\UrlValidate'],
             [['age'], 'integer'],
             [['active'], 'boolean'],

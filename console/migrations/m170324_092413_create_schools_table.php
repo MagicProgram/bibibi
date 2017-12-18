@@ -11,6 +11,7 @@ class m170324_092413_create_schools_table extends Migration
             'name' => $this->string()->notNull(),
             'url' => $this->string()->notNull(),
             'address' => $this->text(),
+            'location' => $this->text(),
             'timetable' => $this->text(),
             'phone' => $this->string(),
             'active' => $this->smallInteger(1)->notNull()->defaultValue(0),

@@ -20,6 +20,13 @@ use common\models\SchoolsTypes;
 use yii\data\ActiveDataProvider;
 use common\models\Types;
 use common\models\City;
+
+
+
+use dosamigos\google\maps\LatLng;
+use dosamigos\google\maps\Map;
+use dosamigos\google\maps\overlays\Marker;
+
 /**
  * Site controller
  */
@@ -111,12 +118,39 @@ class SiteController extends Controller
     public function actionView($id, $city)
     {
         $model = $this->findProductModel($id);
+        $map = $this->addMapForLocation($model->location, $model->name);
 
         return $this->render('view', [
             'model' => $model,
             'city' => $city,
+            'map' => $map,
         ]);
     }
+
+
+    protected function addMapForLocation($location, $title)
+    {
+        $coords = $location ? str_replace(['(',')'],'',$location) : '0,0';
+        $coords = explode(',',$coords);
+        $coord = new LatLng(['lat' => $coords[0], 'lng' => $coords[1]]);
+        $map = new Map([
+            'center' => $coord,
+            'zoom' => 16,
+            'width' => '100%',
+        ]);
+
+        // $map->width = 100;
+
+        $marker = new Marker([
+            'position' => $coord,
+            'title' => $title,
+        ]);
+
+        $map->addOverlay($marker);
+        
+        return $map;
+    }
+
 
     protected function findProductModel($id)
     {

@@ -75,4 +75,14 @@
 		position: relative;
 		left: -15px;
 	}
+
+	.map_single_school {
+	    right: auto;
+	    margin-left: -15px;
+	    top:0;
+	}
+
+	.school_general_image {
+		max-width: 50%;
+	}
 }

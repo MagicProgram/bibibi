@@ -39,7 +39,6 @@ $this->params['breadcrumbs'][] = $model->name;
     <h1><?= Html::encode($model->name) ?></h1>
 
     <div class="row">
-
         <div class="col-sm-6">
             <div class="col-sm-12">
                 <div class="row">
@@ -60,7 +59,7 @@ $this->params['breadcrumbs'][] = $model->name;
                                 <?= Yii::$app->params['city'][$model->city] . ',' ?>
 
                                 <?php $address = str_replace(' ', '&nbsp;', $model->address);
-                                 echo Yii::$app->formatter->asHtml($address) ?>
+                                 echo Yii::$app->formatter->asHtml($address) ?><br>(показать карту)
                             <?php endif; ?>
                         </div>
                         
@@ -92,6 +91,12 @@ $this->params['breadcrumbs'][] = $model->name;
                     </div>
                 </div>           
             </div>
+
+            <div class="map_single_school">
+                <div class="close_map">Закрыть &times; </div>
+                <? echo $map->display(); ?>      
+            </div>
+
             <!-- Блок с видами  -->
             <?php if ($typeLinks): ?>
             <div class="detail_school_types">    
@@ -122,7 +127,6 @@ $this->params['breadcrumbs'][] = $model->name;
         
        
         <div class="col-sm-6 detail_about">
-
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h2>Расписание занятий</h2>

@@ -10,7 +10,7 @@ use yii\helpers\ArrayHelper;
 /* @var $model common\models\Schools */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Schools', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Школы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="schools-view">

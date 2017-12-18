@@ -25,6 +25,10 @@ use backend\services\DataHelpers;
  */
 class SchoolsController extends Controller
 {
+
+    public function init(){
+        Yii::$app->view->registerJsFile('http://maps.googleapis.com/maps/api/js?key=AIzaSyDefRGh0Q0lP6TX2NwMqscutCmzoSweeuo',['position' => \yii\web\View::POS_HEAD]);
+    }
     /**
      * @inheritdoc
      */

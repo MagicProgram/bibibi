@@ -22,14 +22,19 @@ use dosamigos\ckeditor\CKEditor;
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'address')->textInput(['rows' => 6]) ?>
+            <?= $form->field($model, 'location')->textInput(['rows' => 6]) ?>
+            <div id="map_canvas" style="width:640px; height:380px"></div>
         </div>
 
         <div class="col-md-2">
             <?= $form->field($model, 'age')->dropDownList(['0' => 'Взрослые', '1' => 'Дети', '2' => 'Взрослые и дети']); ?>
         </div>
 
+        <? // Вывод городов из таблицы базы
+           //print_r(Schools::find()->select(['city'])->indexBy('city')->groupBy('city')->column()); ?>
+
         <div class="col-md-3">
-            <?= $form->field($model, 'city')->dropDownList(Schools::find()->select(['city'])->indexBy('city')->groupBy('city')->column(), ['prompt' => '']) ?>
+            <?= $form->field($model, 'city')->dropDownList(Yii::$app->params['city'], ['prompt' => '']) ?>
         </div>
 
         <div class="col-md-2">
@@ -101,6 +106,87 @@ use dosamigos\ckeditor\CKEditor;
         </div>
 
     </div>
+
+    <?
+    $this->registerJs("
+       var geocoder;
+        var map;
+        var marker;
+         var markers = [];
+
+        function initialize(){
+
+              var latlng = new google.maps.LatLng(59.9342802,30.335098600000038);
+
+            var options = {
+                zoom: 10,
+                center: latlng,
+            };
+            map = new google.maps.Map(document.getElementById('map_canvas'), options);
+            geocoder = new google.maps.Geocoder();
+
+        }
+
+          function DeleteMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+                }
+                markers = [];
+            }
+
+        function findLocation(val){
+
+            geocoder.geocode( {'address': val}, function(results, status) {
+
+            var location = results[0].geometry.location
+            map.setCenter(location)
+            map.setZoom(15)
+            DeleteMarkers()
+
+            $('#schools-location').val(location)
+
+             marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                position: location
+            });
+
+          google.maps.event.addListener(marker, 'dragend', function()
+        {
+                    $('#schools-location').val(marker.getPosition())
+        });
+
+        markers.push(marker);
+
+        })
+        }
+
+        $(document).ready(function() {
+
+            initialize();
+
+           
+
+            if( $('#schools-address').val()){
+             _city = $('#schools-city option:selected').text();
+             console.log(_city);
+             _location = _city + '' + $('#schools-address').val()
+               findLocation(_location)
+
+               }
+
+            $('#schools-address, #schools-city').bind('blur keyup change',function(){
+               _city = $('#schools-city option:selected').text();
+               _location = _city + '' + $('#schools-address').val()
+               findLocation(_location)
+            })
+
+
+        });"
+
+    );
+    ?>
+
     
 
     <div class="form-group">
