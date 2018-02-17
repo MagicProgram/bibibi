@@ -94,7 +94,7 @@ $this->params['breadcrumbs'][] = $model->name;
 
             <div class="map_single_school">
                 <div class="close_map">Закрыть &times; </div>
-                <? echo $map->display(); ?>      
+                <?php echo $map->display(); ?>      
             </div>
 
             <!-- Блок с видами  -->

@@ -30,7 +30,7 @@ use dosamigos\ckeditor\CKEditor;
             <?= $form->field($model, 'age')->dropDownList(['0' => 'Взрослые', '1' => 'Дети', '2' => 'Взрослые и дети']); ?>
         </div>
 
-        <? // Вывод городов из таблицы базы
+        <?php // Вывод городов из таблицы базы
            //print_r(Schools::find()->select(['city'])->indexBy('city')->groupBy('city')->column()); ?>
 
         <div class="col-md-3">
