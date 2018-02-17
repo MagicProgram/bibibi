@@ -23,7 +23,7 @@ use dosamigos\ckeditor\CKEditor;
             <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
             <?= $form->field($model, 'address')->textInput(['rows' => 6]) ?>
             <?= $form->field($model, 'location')->textInput(['rows' => 6]) ?>
-            <div id="map_canvas" style="width:640px; height:380px"></div>
+            <div id="map_canvas" style="width:100%; height:380px"></div>
         </div>
 
         <div class="col-md-2">
