@@ -107,7 +107,7 @@ use dosamigos\ckeditor\CKEditor;
 
     </div>
 
-    <?
+    <?php
     $this->registerJs("
        var geocoder;
         var map;
